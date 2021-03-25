@@ -225,13 +225,14 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
+            'text' => 'Busqueda',
             'search' => true,
             'topnav' => true,
         ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
+            /*para el uso de privilegios se usa en can */
             'can'  => 'manage-blog',
         ],
         [
@@ -240,6 +241,29 @@ return [
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
+        ],
+        [
+            'text'    => 'Empleados',
+            'icon'    => 'fas fa-user-tie',
+            'submenu' => [
+                [
+                    'text' => 'Lista de Empleados',
+                    'url'  => '#',
+                    'icon'    => 'far fa-address-book',
+                ],
+                [
+                    'text'    => 'Obras',
+                    'url'     => '#',
+                    'icon'    => 'fas fa-city',
+                    
+                    
+                ],
+                [
+                    'text' => 'Horarios',
+                    'url'  => '#',
+                    'icon'    => 'fas fa-hourglass-half',
+                ],
+            ],
         ],
         ['header' => 'account_settings'],
         [
@@ -388,13 +412,18 @@ return [
                 ],
             ],
         ],
+        /*llamar a nuestro plugin de forma local 
+        active => true para que este activo en todas las paginas
+                  false estara activo en paginas especificas
+        asset cambiamos a true 
+        y location usamos la ubiucacion del plugin que vamos a utilizar*/
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.min',
                 ],
             ],
         ],
