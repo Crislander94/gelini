@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <p>WTablero de Gelini.</p>
+    <p>Tablero de Gelini.</p>
 @stop
 
 @section('css')
