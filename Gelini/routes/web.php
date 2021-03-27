@@ -19,9 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('inicio');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/perfil', function () {
+
+Route::middleware(['auth:sanctum', 'verified'])->get('perfil', function () {
     return view('profile.show');
 })->name('perfil');
 
