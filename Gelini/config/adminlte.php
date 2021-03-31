@@ -225,11 +225,7 @@ return [
 
     'menu' => [
         [
-<<<<<<< HEAD
             'text' => 'Buscar',
-=======
-            'text' => 'Busqueda',
->>>>>>> c7fd4d3b429ddc17065a0715de14cfe83af5f5d2
             'search' => true,
             'topnav' => true,
         ],
@@ -259,8 +255,8 @@ return [
                     'text'    => 'Obras',
                     'url'     => '#',
                     'icon'    => 'fas fa-city',
-                    
-                    
+
+
                 ],
                 [
                     'text' => 'Horarios',
@@ -271,7 +267,7 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
+            'text' => 'perfil',
             'url'  => 'perfil',
             'icon' => 'fas fa-fw fa-user',
         ],
@@ -416,10 +412,10 @@ return [
                 ],
             ],
         ],
-        /*llamar a nuestro plugin de forma local 
+        /*llamar a nuestro plugin de forma local
         active => true para que este activo en todas las paginas
-                  false estara activo en paginas especificas
-        asset cambiamos a true 
+        false estara activo en paginas especificas
+        asset cambiamos a true
         y location usamos la ubiucacion del plugin que vamos a utilizar*/
         'Sweetalert2' => [
             'active' => true,

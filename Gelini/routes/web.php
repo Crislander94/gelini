@@ -13,22 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('dashboard');
-})->name('inicio');
+})->name('dashboard');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('perfil', function () {
     return view('profile.show');
 })->name('perfil');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('home');
 
 Route::get('inicio', function () {
     return view('welcome');
