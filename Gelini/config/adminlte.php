@@ -248,20 +248,16 @@ return [
             'submenu' => [
                 [
                     'text' => 'Lista de Empleados',
-                    'url'  => '#',
-                    'icon'    => 'far fa-address-book',
+                    'route'  => 'admin.empleados.index',
+                    'icon'    => 'far fa-address-book fa-fw',
                 ],
                 [
-                    'text'    => 'Obras',
+                    'text'    => 'Historial',
+                    /*admin.historial.index*/
                     'url'     => '#',
-                    'icon'    => 'fas fa-city',
-
-
-                ],
-                [
-                    'text' => 'Horarios',
-                    'url'  => '#',
-                    'icon'    => 'fas fa-hourglass-half',
+                    'icon'    => 'far fa-calendar-alt fa-fw',
+                    
+                    
                 ],
             ],
         ],
