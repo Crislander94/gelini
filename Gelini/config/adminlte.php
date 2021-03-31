@@ -225,11 +225,7 @@ return [
 
     'menu' => [
         [
-<<<<<<< HEAD
-            'text' => 'Buscar',
-=======
             'text' => 'Busqueda',
->>>>>>> c7fd4d3b429ddc17065a0715de14cfe83af5f5d2
             'search' => true,
             'topnav' => true,
         ],
