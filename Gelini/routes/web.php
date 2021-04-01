@@ -27,3 +27,4 @@ Route::get('inicio', function () {
     return view('welcome');
 })->name('inicio');
 
+Route::resource('obras', 'App\Http\Controllers\ObrasController');

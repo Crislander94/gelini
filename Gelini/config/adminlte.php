@@ -256,8 +256,12 @@ return [
                     /*admin.historial.index*/
                     'url'     => '#',
                     'icon'    => 'far fa-calendar-alt fa-fw',
-                    
-                    
+                ],
+                [
+                    'text'    => 'Obras',
+                    'url'     => '/obras',
+                    'icon'    => 'fas fa-city',
+            
                 ],
             ],
         ],
