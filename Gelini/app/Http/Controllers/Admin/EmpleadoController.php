@@ -38,7 +38,49 @@ class EmpleadoController extends Controller
     public function create()
     {
 
-        return view('admin.empleados.create');
+        $seleccargos=DB::table('cargos')->select('*')->get(); 
+        $cargos = array();
+        foreach($seleccargos as $carg){
+            $cargos["$carg->id"] = $carg->descripcion;
+        }
+
+        $genero =[
+            'h'=>'Hombre',
+            'm' =>'Mujer',
+            
+        ];
+
+        $carga =[
+            'ncargas'=>'NO tiene',
+            'carga1' =>'1 Hijo',
+            'carga2' =>'2 Hijos',
+            'carga3' =>'3 Hijos',
+            'carga4' =>'4 Hijos',
+            'carga5' =>'5 Hijos',
+            
+        ];
+
+        $selectobra =DB::table('obras')->select('*')->get(); 
+        $obra = array();
+        foreach($selectobra as $ob){
+            $obra["$ob->id"] = $ob->Nombre;
+        }
+
+        $selectdepar =DB::table('departamento')->select('*')->get(); 
+        $departamento = array();
+        foreach($selectdepar as $depar){
+            $departamento["$depar->id"] = $depar->descripcion;
+        }
+
+        $selectcontrato=DB::table('contrato')->select('*')->get(); 
+        $contrato = array();
+        foreach($selectcontrato as $contra){
+            $contrato["$contra->id"] = $contra->descripcion;
+        }
+
+
+
+        return view('admin.empleados.create',compact('cargos','genero','carga','obra','departamento','contrato'));
 
     }
 
@@ -50,8 +92,25 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-       //
-        
+        $request->validate([
+            'cedula' =>'numeric|required|digits_between:10,10',
+            'nombre' =>'required |regex:/^[\pL\s\-]+$/u',
+            'apellido' =>'required |regex:/^[\pL\s\-]+$/u',
+            'fnacimiento' =>'required',
+            'email' =>'required',
+            'telefono' =>'numeric|required|digits_between:10,10',
+            'genero' =>'required',
+            'cargas' =>'required',
+            'fingreso' =>'required',
+            'fsalida' =>'required',
+            /*foraneas*/
+            'cargo' =>'required',
+          /*  'sueldo' =>'required', */
+         /*   'obra' =>'required', */
+            'departamento' =>'required',
+            'contrato' =>'required'
+    ]);
+        return $request->all();
     }
 
     /**

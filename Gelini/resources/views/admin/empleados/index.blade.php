@@ -4,7 +4,8 @@
 @section('content_header')
     <div> 
     
-    <h1><b> Lista de Empleados</b>  
+    <h1><b> Lista de Empleados</b>  <a class="btn btn-primary btn-sm" href="{{route('admin.empleados.create')}}"> <i class="fas fa-user-plus "> Empleado </i></a> </h1>
+   
 
     </div>
     
@@ -26,7 +27,6 @@
                     <th>Email</th>
                     <!-- FORANEAS  -->
                     <th>Contrato</th>
-                    <th>Departamento</th>
                     <th>Cargo</th>
                     <!-- fin de foraneas-->
                     <th>Fecha Ingreso</th>
@@ -45,18 +45,17 @@
                         <td>{{$empleado->telefono}}</td>
                         <td>{{$empleado->email}}</td>
                         <td>{{$empleado->contrato}}</td>
-                        <td>{{$empleado->departamento}}</td>
                         <td>{{$empleado->cargo}}</td>
                         <td>{{$empleado->fingreso}}</td>
                         <td>{{$empleado->fsalida}}</td>
-                        <td width="10px">
-                            <a class="btn btn-warning" href="{{route('admin.empleados.edit',$empleado)}}" ><i class="fas fa-user-edit"> </i></a>
+                        <td width="10px" >
+                            <a class="btn btn-warning btn-sm " href="{{route('admin.empleados.edit',$empleado)}}" ><i class="fas fa-user-edit"> </i></a>
                         </td>    
-                        <td width="10px">
+                        <td width="10px" >
                             <form action=" {{route('admin.empleados.destroy', $empleado)}}" method="POST" >
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger"> <i class="fas fa-user-times" ></i> </button>
+                                <button type="submit" class="btn btn-danger btn-sm"> <i class="fas fa-user-times" ></i> </button>
                             
                             </form>
                         </td>
