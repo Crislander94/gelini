@@ -50,12 +50,6 @@ class CreateEmpleadoTable extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreign('rolUsuario')->references('id')->on('users');
-            //Foranea a historial
-            $table->unsignedBigInteger('historial')
-            ->contrained()
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-            $table->foreign('historial')->references('id')->on('historial');
             
         });
         
