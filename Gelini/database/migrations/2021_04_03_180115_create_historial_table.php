@@ -16,6 +16,7 @@ class CreateHistorialTable extends Migration
         Schema::create('historial', function (Blueprint $table) {
             //foranea a empleado
             $table->id();//pk
+            $table->unsignedBigInteger('empleado_id');
             $table->date('fecha_registro');
             $table->integer('dias_trabajados');
             $table->integer('dias_ausencia');

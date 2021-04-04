@@ -28,13 +28,24 @@ class RolPagoController extends Controller
     public function create()
     {
         //
-        $empleados=\DB::table('empleados')->select('*')->get();
-        $empleadostemp=array();
-        foreach($empleados as $empleado){
-            $empleadostemp["$empleado->id"]=$empleadp->apellido;
+        $empleadosS=DB::table('empleados')
+        ->select('*')
+        ->get(); 
+
+        $empleados = array();
+        foreach($empleadosS as $emple){
+            $empleados["$emple->id"] = $emple->apellidos . ' ' . $emple->nombres;
         }
+
+        /*$empleadostemp=array('id','nombres','apellidos');
         
-        return view('roles.crearRolPago',compact('empleadostemp'));
+            foreach($empleados as $empleado){
+                $empleadotemp->id=$empleados::get('id');
+                $empleadotemp->nombres=$empleados::get('nombres');
+                $empleadotemp->apellidos=$empleados::get('apellidos');	
+            }*/
+        //$empleadostemp->save();
+        return view('roles.crearRolPago',compact('empleados'));
     }
 
     /**

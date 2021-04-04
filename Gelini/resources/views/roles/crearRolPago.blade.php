@@ -15,14 +15,15 @@ use Illuminate\Http\Request;
           <div class="col-md-6 employeeform">
             <span id="message"></span>
             <form method="post" id="insert">
-              <div class="form-group col-md-6">
-                <label>Seleccione Empleado</label>
-                  <select class="form-control" name="empleado_id">
-                        {!! Form::select('Seleccione Empleado',$empleadostemp,null,['class'=>'form-control'])!!}
-                        @error('cargo')
+            <div class="form-group">
+                        {!! Form::label('empleado','Seleccione Empleado')!!}
+                        {!! Form::select('empleado',$empleados,null ,['class'=>'form-control'])!!}
+
+                        @error('empleado')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
-                  </select>
+
+
               </div>
               <div class="form-group col-md-6">
                 <label>Días Trabajados</label>
@@ -33,7 +34,7 @@ use Illuminate\Http\Request;
                 <input type="number" name="dias_ausencia" class="form-control" placeholder="Días ausente en el trabajo">
               </div>
               <div class="form-group col-md-6">
-                <label>Horas Extra</label>
+                <label>Observación</label>
                 <input type="text" name="observacion" class="form-control" placeholder="Observación" >
               </div>
               <div class="form-group col-md-6"><p></p></div>
