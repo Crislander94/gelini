@@ -28,3 +28,4 @@ Route::get('inicio', function () {
 })->name('inicio');
 
 Route::resource('obras', 'App\Http\Controllers\ObrasController');
+Route::resource('roles','App\Http\Controllers\RolPagoController');
