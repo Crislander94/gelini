@@ -28,3 +28,5 @@ Route::get('inicio', function () {
 })->name('inicio');
 
 Route::resource('obras', 'App\Http\Controllers\ObrasController');
+
+Route::resource('departamentos', 'App\Http\Controllers\departamentosController');

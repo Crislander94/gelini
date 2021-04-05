@@ -263,6 +263,18 @@ return [
                     'icon'    => 'fas fa-city',
             
                 ],
+                [
+                    'text'    => 'Departamentos',
+                    'url'     => '/departamentos',
+                    'icon'    => 'fas fa-building',
+            
+                ],
+                [
+                    'text'    => 'Rol de Pagos',
+                    'url'     => '/departamentos',
+                    'icon'    => 'fas fa-file-contract',
+            
+                ],
             ],
         ],
         ['header' => 'account_settings'],
