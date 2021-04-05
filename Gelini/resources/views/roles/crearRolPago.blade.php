@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 
 @section('content')
-  {!! Form::open(['route'=>'roles.store'])!!}
+  {!! Form::open(['route'=>'historial.store'])!!}
         <h3>Historial de Asistencias de <b> {{date('M-Y') }}</b></h3> 
         <div class="row">
           <div class="col-md-6 employeeform">

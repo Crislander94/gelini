@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Historial;
 use App\Models\RolPago;
+use App\Models\DetalleRolPago;
 use Illuminate\Http\Request;
 
 class RolPagoGenController extends Controller
@@ -37,17 +38,46 @@ class RolPagoGenController extends Controller
         $inforEmpleado=DB::table('empleados')
         ->join('historial','empleados.id','=','historial.empleado_id')
         ->join('cargos','empleados.cargo','=','cargos.id')
-        ->select('empleados.id','historial.dias_trabajados')
+        ->select('empleados.id','cargos.descripcion','historial.dias_trabajados','historial.dias_ausencia') //ojo con el sueldo
         ->get();
 
         $rolpago=new RolPago;
+        $detallerolpago=new DetalleRolPago;
         foreach($inforEmpleado as $infor){
-            $rolpago->fecha_registro=date('yyyy-mm-dd');
+            $rolpago->fecha_registro=date('y-m-d');
             $rolpago->mes=date('m');
+            $rolpago->estado=date('C');
             $rolpago->empleado=$infor->id;
             $rolpago->save();
+            //INICIALIZAR VARIABLES
+            $vsueldo=420;
+            $vmultasfaltas=0;
+            $vcargo='';
+
+            $vfaltas=$infor->dias_ausencia;
+            $vcargo=strtoupper($infor->descripcion); 
+            if($vcargo == "OFICIAL"){
+                $vmultasfaltas=$vfaltas*20;
+            }elseif($vcargo == "MAESTRO"){
+                $vmultasfaltas=$vfaltas*30;
+            }
+            $vsueldo=$vsueldo-$vmultasfaltas;
+            $vfondosreserva=$vsueldo*(0.0833);
+            $viess=$vsueldo*(0.0945);
+            $vingresos=$vsueldo+$vfondosreserva;
+            $vegresos=$viess;
+            $vplatatotal=$vingresos+$vegresos;
+
+            $detallerolpago->sueldo=420;  //mucho ojito con esto
+            $detallerolpago->total_ingresos=$vingresos;
+            $detallerolpago->total_egresos=$vegresos;
+            $detallerolpago->seguridad_social=$viess;
+            $detallerolpago->total_pagar=$vplatatotal;
+            $detallerolpago->rolpago_id=$rolpago->id;
+            $detallerolpago->save();
         }
-        return $rolpago->all();
+
+        return $detallerolpago->all();
     }
 
     /**

@@ -13,7 +13,7 @@ class CreateDetalleRolTable extends Migration
      */
     public function up()
     {
-        Schema::create('detalle_rolpago', function (Blueprint $table) {
+        Schema::create('detalle_rol', function (Blueprint $table) {
             $table->id();            
             //FK a empleado relación 1 empleado muchos rolespago
             $table->unsignedBigInteger('rolpago_id')
