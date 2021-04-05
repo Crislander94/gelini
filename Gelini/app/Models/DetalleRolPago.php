@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class historial extends Model
-{   
+class DetalleRolPago extends Model
+{
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'historial';
+    protected $table = 'detalle_rol';
     /**
     * The database primary key value.
     *
@@ -25,5 +25,5 @@ class historial extends Model
      *
      * @var array
      */
-    protected $fillable = ['empleado_id','fecha_registro', 'dias_trabajados', 'dias_ausencia','observacion'];
+    protected $fillable = ['rol_id','sueldo','total_ingresos','total_egresos','seguridad_social','total_pagar'];
 }

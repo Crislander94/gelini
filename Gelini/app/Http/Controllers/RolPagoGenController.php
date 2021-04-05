@@ -1,25 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use App\Models\Historial;
 use App\Models\RolPago;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 
-class RolPagoController extends Controller
+class RolPagoGenController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        return view('roles.menuRolPago');
+
+        
+        
+    
+        
+    
+    
+            //return view('roles.generarRolPago');
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,15 +34,20 @@ class RolPagoController extends Controller
     public function create()
     {
         //
-        $empleadosS=DB::table('empleados')
-        ->select('*')
-        ->get(); 
+        $inforEmpleado=DB::table('empleados')
+        ->join('historial','empleados.id','=','historial.empleado_id')
+        ->join('cargos','empleados.cargo','=','cargos.id')
+        ->select('empleados.id','historial.dias_trabajados')
+        ->get();
 
-        $empleados = array();
-        foreach($empleadosS as $emple){
-            $empleados["$emple->id"] = $emple->apellidos . ' ' . $emple->nombres;
+        $rolpago=new RolPago;
+        foreach($inforEmpleado as $infor){
+            $rolpago->fecha_registro=date('yyyy-mm-dd');
+            $rolpago->mes=date('m');
+            $rolpago->empleado=$infor->id;
+            $rolpago->save();
         }
-        return view('roles.crearRolPago',compact('empleados'));
+        return $rolpago->all();
     }
 
     /**
@@ -48,15 +59,6 @@ class RolPagoController extends Controller
     public function store(Request $request)
     {
         //
-        $historialt=new Historial;
-        $historialt->empleado_id=$request->input('empleado');
-        $historialt->fecha_registro=date('Y-m-d',time());
-        $historialt->dias_trabajados=$request->input('dias_trabajados');
-        $historialt->dias_ausencia=$request->input('dias_ausencia');
-        $historialt->observacion=$request->input('observacion');
-        $historialt->save();
-        $historialt->all();
-        return view('roles.indexRolPago');
     }
 
     /**
@@ -68,8 +70,6 @@ class RolPagoController extends Controller
     public function show($id)
     {
         //
-        $historiales=Historial::all();
-        return view('roles.indexRolPago',compact('historiales'));
     }
 
     /**
