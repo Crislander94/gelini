@@ -30,3 +30,5 @@ Route::get('inicio', function () {
 Route::resource('obras', 'App\Http\Controllers\ObrasController');
 
 Route::resource('departamentos', 'App\Http\Controllers\departamentosController');
+Route::resource('historial','App\Http\Controllers\RolPagoController');
+Route::resource('roles','App\Http\Controllers\RolPagoGenController');
