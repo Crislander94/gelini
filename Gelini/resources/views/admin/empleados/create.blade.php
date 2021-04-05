@@ -2,7 +2,7 @@
 @section('title', 'Gelini')
 
 @section('content_header')
-    <h1>Agregar Empleado</h1>
+    <h1><b> Agregar Empleado </b></h1>
 @stop
 
 @section('content')
@@ -12,8 +12,6 @@
     <div class="card">
         <div class="card-body ">
             {!! Form::open(['route'=>'admin.empleados.store'])!!}
-
-
 
                     <div class="form-group">
                         {!! Form::label('cedula','Cedula')!!}
@@ -26,29 +24,29 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('nombre','Nombre')!!}
-                        {!! Form::text ('nombre' , null , ['class' => 'form-control','placeholder="Ingresar Nombre"'])!!}
+                        {!! Form::label('nombres','Nombre')!!}
+                        {!! Form::text ('nombres' , null , ['class' => 'form-control','placeholder="Ingresar Nombre"'])!!}
 
-                        @error('nombre')
+                        @error('nombres')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
                     </div>
 
 
                     <div class="form-group">
-                        {!! Form::label('apellido','Apellido')!!}
-                        {!! Form::text ('apellido' , null , ['class' => 'form-control','placeholder="Ingresar Apellidio"'])!!}
-                        @error('apellido')
+                        {!! Form::label('apellidos','Apellido')!!}
+                        {!! Form::text ('apellidos' , null , ['class' => 'form-control','placeholder="Ingresar Apellidio"'])!!}
+                        @error('apellidos')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
 
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('fnacimiento','Fecha Nacimiento')!!}
-                        {!! Form::date('fnacimiento', \Carbon\Carbon::now(), ['class' => 'form-control'])  !!}
+                        {!! Form::label('fechanacimiento','Fecha Nacimiento')!!}
+                        {!! Form::date('fechanacimiento', \Carbon\Carbon::now(), ['class' => 'form-control'])  !!}
 
-                        @error('fnacimiento')
+                        @error('fechanacimiento')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
                     </div>
@@ -75,13 +73,11 @@
 
                     <div class="form-group form-select">
                         {!! Form::label('genero','Genero')!!}
-                        {!! Form::select('genero',$genero,null,['class'=>'form-control'])!!}
+                        {!! Form::select('genero',$genero,null,['class'=>'form-control','placeholder' => 'Seleccione un Genero...'])!!}
 
                         @error('genero')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
-
-
                     </div>
 
                     <div class="form-group">
@@ -91,8 +87,6 @@
                         @error('cargas')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
-
-
                     </div>
 
                     <div class="form-group">
@@ -102,8 +96,6 @@
                         @error('fingreso')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
-
-
                     </div>
 
                     <div class="form-group">
@@ -113,18 +105,11 @@
                         @error('fsalida')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
-
-
-
                     </div>
-
-                    <!-- Campos Foraneos-->
-
-
 
                     <div class="form-group">
                         {!! Form::label('cargo','Cargo')!!}
-                        {!! Form::select('cargo',$cargos,null,['class'=>'form-control'])!!}
+                        {!! Form::select('cargo',$cargos,null,['class'=>'form-control','placeholder' => 'Seleccione un Cargo...'])!!}
 
                         @error('cargo')
                             <span class="text-danger"><b> {{$message}}</b></span>
@@ -133,17 +118,9 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('sueldo','Sueldo')!!}
-                        {!! Form::text ('sueldo' , null , ['class' => 'form-control','readonly'])!!}
-
-
-
-                    </div>
-
-                    <div class="form-group">
                         {!! Form::label('obra','Obra')!!}
-                        {!! Form::select('obra',$obra,null, ['multiple'=>'multiple','name'=>'obra[]','class' => 'form-control','readonly'])!!}
-
+                        {!! Form::select('obra',$obra,null,['class' => 'form-control','placeholder' => 'Seleccione una Obra...'])!!}
+                       
                         @error('obra')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
@@ -153,7 +130,7 @@
 
                     <div class="form-group">
                         {!! Form::label('departamento','Departameto')!!}
-                        {!! Form::select('departamento',$departamento,null ,['class'=>'form-control'])!!}
+                        {!! Form::select('departamento',$departamento,null,['class'=>'form-control','placeholder' => 'Seleccione un Departamento...'])!!}
 
                         @error('departamento')
                             <span class="text-danger"><b> {{$message}}</b></span>
@@ -164,7 +141,7 @@
 
                     <div class="form-group">
                         {!! Form::label('contrato','Contrtato')!!}
-                        {!! Form::select('contrato',$contrato,null,['class'=>'form-control'])!!}
+                        {!! Form::select('contrato',$contrato,null,['class'=>'form-control','placeholder' => 'Seleccione un tipo de contrato...'])!!}
 
                         @error('contrato')
                             <span class="text-danger"><b> {{$message}}</b></span>
@@ -172,9 +149,10 @@
 
                     </div>
 
-
-
+                    
                     {!!Form::submit('Guardar',['class=" btn btn-success btn-lg" ']) !!}
+                    {!!Form::reset('Cancelar',['class=" btn btn-danger btn-lg" ']) !!}
+
 
             {!! form::close() !!}
         </div>
