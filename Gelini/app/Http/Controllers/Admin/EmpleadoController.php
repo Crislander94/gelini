@@ -26,10 +26,7 @@ class EmpleadoController extends Controller
         */
         $empleados = empleado::all();
 
-        $empleados = DB::table('empleados as e')
-        ->join('departamentos as d','d.id','=','e.departamento')
-        ->select('e.*','d.descripcion as departamento')
-        ->get();
+        
 
         /* carpeta admin/ capeta empleados / archivo .php index*/
         return view('admin.empleados.index', array('empleados'=>$empleados));

@@ -43,7 +43,7 @@
                         <td>{{$empleado->apellidos}}</td>
                         <td>{{$empleado->genero}}</td>
                         <td>{{$empleado->telefono}}</td>
-                        <td>{{$empleado->departamento}}</td>
+                        <td>{{$empleado->email}}</td>
                         <td>{{$empleado->contrato}}</td>
                         <td>{{$empleado->cargo}}</td>
                         <td>{{$empleado->fingreso}}</td>
