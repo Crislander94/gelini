@@ -37,7 +37,7 @@
             <tbody class="text-center">
                 @foreach($empleados as $empleado)
                     <tr>
-                        <td>{{$empleado->id}}</td>
+                        <td class="table-primary">{{$empleado->id}}</td>
                         <td>{{$empleado->cedula}}</td>
                         <td>{{$empleado->nombres}}</td>
                         <td>{{$empleado->apellidos}}</td>

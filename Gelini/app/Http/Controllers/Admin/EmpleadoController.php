@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 /*si no es empleado es Empleado*/
 use Illuminate\Support\Facades\DB;
 use App\Models\empleado;
+use App\Models\departamento;
 
 
 class EmpleadoController extends Controller
@@ -24,12 +25,14 @@ class EmpleadoController extends Controller
         return view('admin.empleados.index', compact('empleados'));
         */
         $empleados = empleado::all();
-       
+
+        
+
         /* carpeta admin/ capeta empleados / archivo .php index*/
-        return view('admin.empleados.index', compact('empleados'));
+        return view('admin.empleados.index', array('empleados'=>$empleados));
         
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *

@@ -7,7 +7,15 @@
 @stop
 
 @section('content')
-    <p>Tablero de Gelini.</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="col-md-19">
+            
+     <div class="card">
+                               
+     <img class="w-85" src="img/descarga2.jpg" alt="">
+                   
 @stop
 
 @section('css')

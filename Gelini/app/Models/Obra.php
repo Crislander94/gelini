@@ -29,5 +29,15 @@ class Obra extends Model
      */
     protected $fillable = ['Nombre', 'Descripcion', 'Estado', 'Fecha_Inicio', 'Fecha_Fin'];
 
+    public function getFecha_InicioAttribute($date)
+    {
+        return \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('d-m-Y');
+    }
+    
+    public function getFecha_FinAttribute($date)
+    {
+        return \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
+    }
+
     
 }
