@@ -7,12 +7,12 @@
 
 @section('content')
     <div class="container">
-        
+       
             <div class="col-md-15">
                 <div class="card">
-                    <div class="card-header">Edit Obra #{{ $obra->id }}</div>
+                    <div class="card-header">Create New departamento</div>
                     <div class="card-body">
-                        <a href="{{ url('/obras') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</button></a>
+                        <a href="{{ url('/departamentos') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -24,11 +24,10 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/obras/' . $obra->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ url('/departamentos') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            @include ('obras.form', ['formMode' => 'edit'])
+                            @include ('departamentos.form', ['formMode' => 'create'])
 
                         </form>
 

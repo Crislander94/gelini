@@ -147,7 +147,7 @@ return [
     'sidebar_mini' => true,
     'sidebar_collapse' => true,
     'sidebar_collapse_auto_size' => false,
-    'sidebar_collapse_remember' => false,
+    'sidebar_collapse_remember' => true,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l0',
@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -257,14 +257,27 @@ return [
                     'url'     => '#',
                     'icon'    => 'far fa-calendar-alt fa-fw',
                 ],
+            ],
+        ],
                 [
                     'text'    => 'Obras',
                     'url'     => '/obras',
                     'icon'    => 'fas fa-city',
             
                 ],
-            ],
-        ],
+                [
+                    'text'    => 'Departamentos',
+                    'url'     => '/departamentos',
+                    'icon'    => 'fas fa-building',
+            
+                ],
+                [
+                    'text'    => 'Rol de Pagos',
+                    'url'     => '/departamentos',
+                    'icon'    => 'fas fa-file-contract',
+            
+                ],
+            
         ['header' => 'account_settings'],
         [
             'text' => 'perfil',

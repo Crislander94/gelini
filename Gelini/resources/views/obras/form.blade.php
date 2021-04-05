@@ -15,12 +15,12 @@
 </div>
 <div class="form-group {{ $errors->has('Fecha_Inicio') ? 'has-error' : ''}}">
     <label for="Fecha_Inicio" class="control-label">{{ 'Fecha Inicio' }}</label>
-    <input class="form-control" name="Fecha_Inicio" type="date" id="Fecha_Inicio" value="{{ isset($obra->Fecha_Inicio) ? $obra->Fecha_Inicio : ''}}" >
+    <input class="form-control" name="Fecha_Inicio" type="date" id="Fecha_Inicio" value="{{ isset($obra->Fecha_inicio) ? $obra->Fecha_inicio : ''}}" >
     {!! $errors->first('Fecha_Inicio', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('Fecha_Fin') ? 'has-error' : ''}}">
     <label for="Fecha_Fin" class="control-label">{{ 'Fecha Fin' }}</label>
-    <input class="form-control" name="Fecha_Fin" type="date" id="Fecha_Fin" value="{{ isset($obra->Fecha_Fin) ? $obra->Fecha_Fin : ''}}" >
+    <input class="form-control" name="Fecha_Fin" type="date" id="Fecha_Fin" value="{{ isset($obra->Fecha_fin) ? $obra->Fecha_fin : ''}}" >
     {!! $errors->first('Fecha_Fin', '<p class="help-block">:message</p>') !!}
 </div>
 

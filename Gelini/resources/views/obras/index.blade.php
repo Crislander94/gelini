@@ -41,7 +41,7 @@
                                 @foreach($obras as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                       <td>{{ $item->Nombre }}</td><td>{{ $item->Descripcion }}</td><td>{{ $item->Estado }}</td><td>{{ $item->Fecha_Inicio }}</td><td>{{ $item->Fecha_Fin }}</td>
+                                       <td>{{ $item->Nombre }}</td><td>{{ $item->Descripcion }}</td><td>{{ $item->Estado }}</td><td>{{ $item->Fecha_inicio }}</td><td>{{ $item->Fecha_fin }}</td>
                                         <td>
                                             <a href="{{ url('/obras/' . $item->id) }}" title="Ver Obra"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
                                             <a href="{{ url('/obras/' . $item->id . '/edit') }}" title="Editar Obra"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>

@@ -4,42 +4,41 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Controllers\EmpleadoControllers;
 
-use App\Models\Obra;
+
+use Illuminate\Support\Facades\DB;
+use App\Models\departamento;
+use App\Models\empleado;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
-class ObrasController extends Controller
+class departamentosController extends Controller
 {
-    public function __construct()
-    {
-        $date = carbon::now();
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\View\View
      */
- 
-  public function index(Request $request)
+    public function index(Request $request)
     {
-        $obras = obra::all();
-        
+        $departamentos = DB::table('departamentos as e')
+        ->join('empleados as d','e.id','=','d.departamento')
+        ->select('d.nombres as nombres')
+        ->get();
+
         $keyword = $request->get('search');
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $obras = Obra::where('Nombre', 'LIKE', "%$keyword%")
-                ->orWhere('Descripcion', 'LIKE', "%$keyword%")
-                ->orWhere('Estado', 'LIKE', "%$keyword%")
-                ->orWhere('Fecha_Inicio', 'LIKE', "%$keyword%")
-                ->orWhere('Fecha_Fin', 'LIKE', "%$keyword%")
+            $departamentos = departamento::where('descripcion', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $obras = Obra::latest()->paginate($perPage);
+            $departamentos = departamento::latest()->paginate($perPage);
         }
+
         
-        return view('obras.index', compact('obras'));
+
+        return view('departamentos.index', compact('departamentos'));
     }
 
     /**
@@ -49,7 +48,7 @@ class ObrasController extends Controller
      */
     public function create()
     {
-        return view('obras.create');
+        return view('departamentos.create');
     }
 
     /**
@@ -64,9 +63,9 @@ class ObrasController extends Controller
         
         $requestData = $request->all();
         
-        Obra::create($requestData);
+        departamento::create($requestData);
 
-        return redirect('obras')->with('flash_message', 'Obra added!');
+        return redirect('departamentos')->with('flash_message', 'departamento added!');
     }
 
     /**
@@ -78,9 +77,9 @@ class ObrasController extends Controller
      */
     public function show($id)
     {
-        $obra = Obra::findOrFail($id);
+        $departamento = departamento::findOrFail($id);
 
-        return view('obras.show', compact('obra'));
+        return view('departamentos.show', compact('departamento'));
     }
 
     /**
@@ -92,9 +91,9 @@ class ObrasController extends Controller
      */
     public function edit($id)
     {
-        $obra = Obra::findOrFail($id);
+        $departamento = departamento::findOrFail($id);
 
-        return view('obras.edit', compact('obra'));
+        return view('departamentos.edit', compact('departamento'));
     }
 
     /**
@@ -110,10 +109,10 @@ class ObrasController extends Controller
         
         $requestData = $request->all();
         
-        $obra = Obra::findOrFail($id);
-        $obra->update($requestData);
+        $departamento = departamento::findOrFail($id);
+        $departamento->update($requestData);
 
-        return redirect('obras')->with('flash_message', 'Obra updated!');
+        return redirect('departamentos')->with('flash_message', 'departamento updated!');
     }
 
     /**
@@ -125,8 +124,8 @@ class ObrasController extends Controller
      */
     public function destroy($id)
     {
-        Obra::destroy($id);
+        departamento::destroy($id);
 
-        return redirect('obras')->with('flash_message', 'Obra deleted!');
+        return redirect('departamentos')->with('flash_message', 'departamento deleted!');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Model\departamento;
 class empleado extends Model
 {
     use HasFactory;
@@ -23,3 +23,4 @@ class empleado extends Model
     'departamento',
     'contrato'];                  
 }
+

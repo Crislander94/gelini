@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 /*si no es empleado es Empleado*/
 use Illuminate\Support\Facades\DB;
 use App\Models\empleado;
+use App\Models\departamento;
 
 
 class EmpleadoController extends Controller
@@ -32,7 +33,7 @@ class EmpleadoController extends Controller
         return view('admin.empleados.index', array('empleados' => $empleados));
         
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -191,12 +192,12 @@ class EmpleadoController extends Controller
     public function update(Request $request, empleado $empleado)
     {
         $request->validate([
-            'cedula' =>'numeric|unique:empleados|required|digits_between:10,10',
+            'cedula' =>"numeric|unique:empleados,cedula,$empleado->id|required|digits_between:10,10",
             'nombres' =>'required | regex:/^[\pL\s\-]+$/u',
             'apellidos' =>'required | regex:/^[\pL\s\-]+$/u',
             'fechanacimiento' =>'required',
-            'email' =>'required|unique:empleados',
-            'telefono' =>'numeric|unique:empleados|required|digits_between:10,10',
+            'email' =>"required|unique:empleados,email,$empleado->id",
+            'telefono' =>"numeric|unique:empleados,telefono,$empleado->id|required|digits_between:10,10",
             'genero' =>'required',
             'cargas' =>'required',
             'fingreso' =>'required',
@@ -207,6 +208,9 @@ class EmpleadoController extends Controller
             'departamento' =>'required',
             'contrato' =>'required'
     ]);
+            $empleado->update($request->all());
+
+            return \redirect()->route('admin.empleados.index',$empleado);
     }
 
     /**
