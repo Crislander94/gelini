@@ -4,8 +4,7 @@
 @section('content_header')
     <div> 
     
-    <h1><b> Lista de Empleados</b> <a class="btn btn-primary btn-sm" href="{{route('admin.empleados.create')}}"> <i class="fas fa-user-plus "> Empleado </i></a> </h1>
-    
+    <h1><b class="text-center"> Listado de Empleados</b> 
 
     </div>
     
@@ -15,10 +14,21 @@
 
 
 <div class="card">
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+  <a class="btn btn-primary " href="{{route('admin.empleados.create')}}"> <i class="fas fa-user-plus "> NUEVO </i></a> </h1> 
+    <form class="d-flex">
+      <input name="buscar" class="form-control me-2" type="search" placeholder="Buscar por cedula" aria-label="Search" value="{{$buscar}}">
+      <button class="btn btn-success" type="submit">Buscar</button>
+    </form>
+  </div>
+</nav>
 
    <div class="card-body">
+
    @if(session('informacion'))
     <div class="alert alert-success alert-dismissible fade show role="alert"">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong><b> {{session('informacion')}}</b></strong>
     </div>
 
@@ -45,7 +55,7 @@
             <tbody class="text-center">
                 @foreach($empleados as $empleado)
                     <tr>
-                        <td class="table-primary">{{$empleado-> id}}</td>
+                        <td class="table-primary"><b> {{$empleado-> id}}</b></td>
                         <td>{{$empleado-> cedula}}</td>
                         <td>{{$empleado-> nombres}}</td>
                         <td>{{$empleado-> apellidos}}</td>

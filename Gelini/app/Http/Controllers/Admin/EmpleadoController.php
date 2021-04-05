@@ -17,21 +17,24 @@ class EmpleadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+      /*  */
+      
+      $buscar= $request->get('buscar');
       $empleados = DB::table('empleados as e')
             ->join('contrato as c', 'e.contrato', '=', 'c.id')
             ->join('departamento as d', 'e.departamento', '=', 'd.id')
             ->join('cargos as ca', 'e.cargo', '=', 'ca.id')
             ->select('e.*','d.descripcion as departamento','c.descripcion as contrato',
             'ca.descripcion as cargo')
+            ->where('cedula','like','%'.$buscar.'%')
             ->get();
             
         
         /* carpeta admin/ capeta empleados / archivo .php index*/
-        return view('admin.empleados.index', array('empleados' => $empleados));
-        
+     /*   return view('admin.empleados.index', array('empleados' => $empleados));*/
+     return view('admin.empleados.index',compact('empleados','buscar'));
     }
     
     /**
@@ -210,7 +213,7 @@ class EmpleadoController extends Controller
     ]);
             $empleado->update($request->all());
 
-            return \redirect()->route('admin.empleados.index',$empleado);
+            return \redirect()->route('admin.empleados.index',$empleado)->with('informacion','EMPLEADO ACTUALIZADO CON EXITO');
     }
 
     /**
