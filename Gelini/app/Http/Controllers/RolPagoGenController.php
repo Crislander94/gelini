@@ -53,6 +53,7 @@ class RolPagoGenController extends Controller
             $vsueldo=420;
             $vmultasfaltas=0;
             $vcargo='';
+            $vprestamos=0;
 
             $vfaltas=$infor->dias_ausencia;
             $vcargo=strtoupper($infor->descripcion); 
@@ -61,6 +62,7 @@ class RolPagoGenController extends Controller
             }elseif($vcargo == "MAESTRO"){
                 $vmultasfaltas=$vfaltas*30;
             }
+            
             $vsueldo=$vsueldo-$vmultasfaltas;
             $vfondosreserva=$vsueldo*(0.0833);
             $viess=$vsueldo*(0.0945);
@@ -100,6 +102,20 @@ class RolPagoGenController extends Controller
     public function show($id)
     {
         //
+        $rolespago=DB::table('rolpago')
+        ->join('detalle_rol','rolpago.id','=','detalle_rol.rolpago_id')
+        ->join('empleados','rolpago.empleado','=','empleados.id')
+        //->join('cargos','empleados.cargo','=','cargos.id')
+        ->select('empleado.id','empleado.nombres','empleado.apellidos','empleado.')
+        ->get();
+
+
+        /*$inforEmpleado=DB::table('empleados')
+        ->join('historial','empleados.id','=','historial.empleado_id')
+        ->join('cargos','empleados.cargo','=','cargos.id')
+        ->select('empleados.id','cargos.descripcion','historial.dias_trabajados','historial.dias_ausencia') //ojo con el sueldo
+        ->get();*/
+
     }
 
     /**
