@@ -13,7 +13,7 @@ class departamento extends Model
      *
      * @var string
      */
-    protected $table = 'departamentos';
+    protected $table = 'departamento';
 
     /**
     * The database primary key value.
@@ -29,9 +29,5 @@ class departamento extends Model
      */
     protected $fillable = ['descripcion'];
 
-    public function empleados(){
-        return $this->belongsTo('App\Models\departamento');
-        
-    }
-
+    
 }

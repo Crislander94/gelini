@@ -47,8 +47,9 @@ class RolPagoController extends Controller
      */
     public function store(Request $request)
     {
+        
         //
-        $historialt=new Historial;
+        $historialt=new historial;
         $historialt->empleado_id=$request->input('empleado');
         $historialt->fecha_registro=date('Y-m-d',time());
         $historialt->dias_trabajados=$request->input('dias_trabajados');
