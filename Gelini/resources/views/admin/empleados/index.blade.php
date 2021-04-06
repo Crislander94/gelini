@@ -65,7 +65,7 @@
                         <td >{{$empleado-> numeroCargas}}</td>
                         <td>{{$empleado-> contrato}}</td>
                         <td>{{$empleado-> cargo}}</td>
-                        <td>{{$empleado-> departamento}}</td>
+                        <td>{{$empleado-> departamentos}}</td>
                         <td>{{$empleado-> fingreso}}</td>
                         <td>{{$empleado-> fsalida}}</td>
                         <td  width="10px" >
@@ -84,9 +84,11 @@
             </tbody>
         
         </table>
- 
+     
         </div>
 </div>
+
+{{$empleados->links()}}
 
 
 @stop

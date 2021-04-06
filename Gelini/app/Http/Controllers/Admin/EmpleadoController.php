@@ -19,18 +19,20 @@ class EmpleadoController extends Controller
      */
     public function index(Request $request)
     {
-      /*  */
+      
       
       $buscar= $request->get('buscar');
+      
       $empleados = DB::table('empleados as e')
             ->join('contrato as c', 'e.contrato', '=', 'c.id')
-            ->join('departamento as d', 'e.departamento', '=', 'd.id')
+            ->join('departamentos as d', 'e.departamento', '=', 'd.id')
             ->join('cargos as ca', 'e.cargo', '=', 'ca.id')
-            ->select('e.*','d.descripcion as departamento','c.descripcion as contrato',
+            ->select('e.*','d.descripcion as departamentos','c.descripcion as contrato',
             'ca.descripcion as cargo')
             ->where('cedula','like','%'.$buscar.'%')
-            ->get();
-            
+            ->paginate(7);
+           /* ->get();
+            */
         
         /* carpeta admin/ capeta empleados / archivo .php index*/
      /*   return view('admin.empleados.index', array('empleados' => $empleados));*/
@@ -73,7 +75,7 @@ class EmpleadoController extends Controller
             $obra["$ob->id"] = $ob->Nombre;
         }
 
-        $selectdepar =DB::table('departamento')->select('*')->get(); 
+        $selectdepar =DB::table('departamentos')->select('*')->get(); 
         $departamento = array();
         foreach($selectdepar as $depar){
             $departamento["$depar->id"] = $depar->descripcion;
@@ -169,7 +171,7 @@ class EmpleadoController extends Controller
             $obra["$ob->id"] = $ob->Nombre;
         }
 
-        $selectdepar =DB::table('departamento')->select('*')->get(); 
+        $selectdepar =DB::table('departamentos')->select('*')->get(); 
         $departamento = array();
         foreach($selectdepar as $depar){
             $departamento["$depar->id"] = $depar->descripcion;
