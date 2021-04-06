@@ -29,9 +29,5 @@ class departamento extends Model
      */
     protected $fillable = ['descripcion'];
 
-    public function empleados(){
-        return $this->belongsTo('App\Models\departamento');
-        
-    }
-
+    
 }

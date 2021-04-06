@@ -59,7 +59,7 @@
 
                     <div class="form-group">
                         {!! Form::label('telefono','Telefono')!!}
-                        {!! Form::text ('telefono' ,null, ['class' => 'awesome form-control','placeholder="Ingresar Telefono"'])!!}
+                        {!! Form::text ('telefono' ,null, ['class' => ' form-control','placeholder="Ingresar Telefono"'])!!}
 
                         @error('telefono')
                             <span class="text-danger"><b> {{$message}}</b></span>

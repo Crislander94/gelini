@@ -9,6 +9,7 @@ use App\Models\Obra;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
+
 class ObrasController extends Controller
 {
     public function __construct()
@@ -26,7 +27,7 @@ class ObrasController extends Controller
         $obras = obra::all();
         
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 2;
 
         if (!empty($keyword)) {
             $obras = Obra::where('Nombre', 'LIKE', "%$keyword%")

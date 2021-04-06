@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Http\Controllers\EmpleadoControllers;
 
 
@@ -21,14 +20,15 @@ class departamentosController extends Controller
      */
     public function index(Request $request)
     {
-        $departamentos = DB::table('departamentos as e')
-        ->join('empleados as d','e.id','=','d.departamento')
-        ->select('d.nombres as nombres')
-        ->get();
+        
+        $empleados = DB::table('empleados as e')
+            ->join('departamentos as d', 'e.departamento', '=', 'd.id')
+            ->select('e.*','d.descripcion as departamentos')
+            ->get();
 
         $keyword = $request->get('search');
         $perPage = 25;
-
+        
         if (!empty($keyword)) {
             $departamentos = departamento::where('descripcion', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);

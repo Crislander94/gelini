@@ -41,7 +41,7 @@
                                 @foreach($departamentos as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nombres }}</td>
+                                        <td>{{ $item->departamento }}</td>
                                         <td>{{ $item->descripcion }}</td>
                                         </tr>
                                 @endforeach
