@@ -18,7 +18,7 @@ class RolPagoController extends Controller
     public function index(Request $request)
     {
         //
-        return view('roles.menuRolPago');
+        return view('historial_asistencia.menuHistorial');
     }
     /**
      * Show the form for creating a new resource.
@@ -36,7 +36,7 @@ class RolPagoController extends Controller
         foreach($empleadosS as $emple){
             $empleados["$emple->id"] = $emple->apellidos . ' ' . $emple->nombres;
         }
-        return view('roles.crearRolPago',compact('empleados'));
+        return view('historial_asistencia.registrarHistorialAsistencias',compact('empleados'));
     }
 
     /**
@@ -47,8 +47,6 @@ class RolPagoController extends Controller
      */
     public function store(Request $request)
     {
-        
-        //
         $historialt=new historial;
         $historialt->empleado_id=$request->input('empleado');
         $historialt->fecha_registro=date('Y-m-d',time());
@@ -56,8 +54,8 @@ class RolPagoController extends Controller
         $historialt->dias_ausencia=$request->input('dias_ausencia');
         $historialt->observacion=$request->input('observacion');
         $historialt->save();
-        $historialt->all();
-        return view('roles.indexRolPago');
+        //$historialt->all();
+        return view('historial_asistencia.verHistorialAsistencias');
     }
 
     /**
@@ -70,7 +68,7 @@ class RolPagoController extends Controller
     {
         //
         $historiales=Historial::all();
-        return view('roles.indexRolPago',compact('historiales'));
+        return view('historial_asistencia.verHistorialAsistencias',compact('historiales'));
     }
 
     /**

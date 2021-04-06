@@ -1,16 +1,17 @@
 use Illuminate\Http\Request;
+use app\Http\Controller\RolPagoController;
 
 @extends('adminlte::page')
-@section('title', 'Rol de Pago')
+
+@section('title', 'Historiales de Asistencia')
 
 @section('content_header')
-    <h1>Roles de Pago Generados</h1>
+    <h1>Historia de Asistencias de los Empleados</h1>
 @stop
 
 
 @section('content')
-    <div class="card">
-        
+<div class="card">        
         <div class="card-body">
         <table class="table table-hover table-bordered table-condensed">
             <thead class="text-center">
@@ -32,10 +33,10 @@ use Illuminate\Http\Request;
                         <td>{{$historial->dias_ausencia}}</td>
                         <td>{{$historial->observacion}}</td>
                         <td width="10px" >
-                            <a class="btn btn-warning btn-sm " href="{{route('admin.empleados.edit',$historial)}}" ><i class="fas fa-user-edit"> </i></a>
+                            <a class="btn btn-warning btn-sm " href="{{route('historial.edit',$historial)}}" ><i class="fas fa-user-edit"> </i></a>
                         </td>    
                         <td width="10px" >
-                            <form action=" {{route('admin.empleados.destroy', $historial)}}" method="POST" >
+                            <form action=" {{route('historial.destroy', $historial)}}" method="POST" >
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger btn-sm"> <i class="fas fa-user-times" ></i> </button>
@@ -47,7 +48,6 @@ use Illuminate\Http\Request;
             </tbody>
         </div>
     </div>
-
-@endsection
+@stop
 
 
