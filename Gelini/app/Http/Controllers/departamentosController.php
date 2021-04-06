@@ -22,8 +22,8 @@ class departamentosController extends Controller
     {
         
         $empleados = DB::table('empleados as e')
-            ->join('departamento as d', 'e.departamento', '=', 'd.id')
-            ->select('e.*','d.descripcion as departamento')
+            ->join('departamentos as d', 'e.departamento', '=', 'd.id')
+            ->select('e.*','d.descripcion as departamentos')
             ->get();
 
         $keyword = $request->get('search');

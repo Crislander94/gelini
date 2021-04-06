@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -237,7 +237,7 @@ return [
         ],
         [
             'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'url'         => '/',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
@@ -257,26 +257,30 @@ return [
                     'url'     => '#',
                     'icon'    => 'far fa-calendar-alt fa-fw',
                 ],
+            ],
+        ],
+            
                 [
                     'text'    => 'Obras',
                     'url'     => '/obras',
-                    'icon'    => 'fas fa-city',
+                    'icon'    => 'fas fa-city fa-fw',
             
                 ],
+            
                 [
                     'text'    => 'Departamentos',
                     'url'     => '/departamentos',
-                    'icon'    => 'fas fa-building',
+                    'icon'    => 'fas fa-building fa-fw',
             
                 ],
                 [
                     'text'    => 'Rol de Pagos',
                     'url'     => '/roles',
-                    'icon'    => 'fas fa-file-contract',
+                    'icon'    => 'fas fa-file-contract fa-fw',
             
                 ],
-            ],
-        ],
+            
+        
         ['header' => 'account_settings'],
         [
             'text' => 'perfil',
@@ -288,60 +292,7 @@ return [
             'url'  => 'perfil',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+       
     ],
 
     /*

@@ -13,7 +13,7 @@ class departamento extends Model
      *
      * @var string
      */
-    protected $table = 'departamento';
+    protected $table = 'departamentos';
 
     /**
     * The database primary key value.
