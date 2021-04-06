@@ -145,14 +145,14 @@ return [
     */
 
     'sidebar_mini' => true,
-    'sidebar_collapse' => true,
+    'sidebar_collapse' => false,
     'sidebar_collapse_auto_size' => false,
-    'sidebar_collapse_remember' => true,
+    'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-light',
-    'sidebar_scrollbar_auto_hide' => 'l0',
+    'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
-    'sidebar_nav_animation_speed' => 350,
+    'sidebar_nav_animation_speed' => 300,
 
     /*
     |--------------------------------------------------------------------------
@@ -172,7 +172,7 @@ return [
     'right_sidebar_slide' => true,
     'right_sidebar_push' => true,
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
-    'right_sidebar_scrollbar_auto_hide' => '1',
+    'right_sidebar_scrollbar_auto_hide' => 'l',
 
     /*
     |--------------------------------------------------------------------------
@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/',
+    'dashboard_url' => 'home',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -257,8 +257,6 @@ return [
                     'url'     => '#',
                     'icon'    => 'far fa-calendar-alt fa-fw',
                 ],
-            ],
-        ],
                 [
                     'text'    => 'Obras',
                     'url'     => '/obras',
@@ -273,11 +271,12 @@ return [
                 ],
                 [
                     'text'    => 'Rol de Pagos',
-                    'url'     => '/departamentos',
+                    'url'     => '/roles',
                     'icon'    => 'fas fa-file-contract',
             
                 ],
-            
+            ],
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'perfil',

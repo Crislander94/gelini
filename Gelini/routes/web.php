@@ -28,6 +28,7 @@ Route::get('inicio', function () {
 })->name('inicio');
 
 Route::resource('obras', 'App\Http\Controllers\ObrasController');
+Route::resource('empleados', 'App\Http\Controllers\admin\EmpleadoController');
 
 Route::resource('departamentos', 'App\Http\Controllers\departamentosController');
 Route::resource('historial','App\Http\Controllers\RolPagoController');

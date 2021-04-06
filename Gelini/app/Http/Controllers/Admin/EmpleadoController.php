@@ -129,6 +129,16 @@ class EmpleadoController extends Controller
 
     public function show( empleado $empleado)
     {
+
+        $empleados = DB::table('empleados as e')
+            ->join('contrato as c', 'e.contrato', '=', 'c.id')
+            ->join('departamento as d', 'e.departamento', '=', 'd.id')
+            ->join('cargos as ca', 'e.cargo', '=', 'ca.id')
+            ->select('e.*','d.descripcion as departamento','c.descripcion as contrato',
+            'ca.descripcion as cargo')
+            ->get();
+      
+        
         return view('admin.empleados.show', compact('empleado'));
     }
 

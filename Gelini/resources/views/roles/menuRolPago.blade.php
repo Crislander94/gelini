@@ -9,7 +9,9 @@ use app\Http\Controller\RolPagoController;
 
 @section('content')
   <div class="card">
-    <h5 class="card-header">HISTORIAL DE ASISTENCIAS</h5>
+    <h5 class="card-header "><b>HISTORIAL DE ASISTENCIAS</h5>
+     <img class="mx-auto d-block " src="img/descarga.jpg" alt="">
+                   
     <div class="card-body">
       <h5 class="card-title">Registrar Asistencias</h5>
       <p class="card-text">Registro de días trabajados y observaciones.<b>Paso indispensable para generar los roles de pago</b></p>
