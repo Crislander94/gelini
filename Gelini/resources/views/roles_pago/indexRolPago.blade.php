@@ -2,11 +2,7 @@
 @section('title', 'Rol de Pagos')
 
 @section('content_header')
-    <div> 
-    
-    <h1><b>Historial de Empleados</b> </h1>
-    </div>
-    
+    <h1><b>Roles de Pagos</b> </h1>
 @stop
 
 @section('content')

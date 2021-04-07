@@ -1,6 +1,3 @@
-use Illuminate\Http\Request;
-use app\Http\Controller\RolPagoController;
-
 @extends('adminlte::page')
 
 @section('title', 'Historiales de Asistencia')
@@ -11,12 +8,14 @@ use app\Http\Controller\RolPagoController;
 
 
 @section('content')
+
 <div class="card">        
         <div class="card-body">
         <table class="table table-hover table-bordered table-condensed">
             <thead class="text-center">
                 <tr>
-                    <th>Empleado</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
                     <th>Periodo</th>
                     <th>Dias Trabajados</th>
                     <th>Dias Ausencia</th>
@@ -27,16 +26,17 @@ use app\Http\Controller\RolPagoController;
             <tbody class="text-center">
                 @foreach($historiales as $historial)
                     <tr>
-                        <td>{{$historial->empleado_id}}</td>
-                        <td>{{$historial->fecha_registro}}</td>
-                        <td>{{$historial->dias_trabajados}}</td>
-                        <td>{{$historial->dias_ausencia}}</td>
-                        <td>{{$historial->observacion}}</td>
+                        <td>{{ $historial-> nombres }}</td>
+                        <td>{{$historial-> apellidos}}</td>
+                        <td>{{$historial-> fecha_registro}}</td>
+                        <td>{{$historial-> dias_trabajados}}</td>
+                        <td>{{$historial-> dias_ausencia}}</td>
+                        <td>{{$historial-> observacion}}</td>
                         <td width="10px" >
-                            <a class="btn btn-warning btn-sm " href="{{route('historial.edit',$historial)}}" ><i class="fas fa-user-edit"> </i></a>
+                            <a class="btn btn-warning btn-sm " href="" ><i class="fas fa-user-edit"> </i></a>
                         </td>    
                         <td width="10px" >
-                            <form action=" {{route('historial.destroy', $historial)}}" method="POST" >
+                            <form action="" method="POST" >
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger btn-sm"> <i class="fas fa-user-times" ></i> </button>

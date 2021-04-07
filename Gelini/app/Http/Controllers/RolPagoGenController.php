@@ -37,8 +37,8 @@ class RolPagoGenController extends Controller
         //
         $inforEmpleado=DB::table('empleados')
         ->join('historial','empleados.id','=','historial.empleado_id')
-        ->join('cargos','empleados.cargo','=','cargos.id')
-        ->select('empleados.id','cargos.descripcion','historial.dias_trabajados','historial.dias_ausencia') //ojo con el sueldo
+        ->join('cargo','empleados.cargo','=','cargo.id')
+        ->select('empleados.id','cargo.descripcion','historial.dias_trabajados','historial.dias_ausencia') //ojo con el sueldo
         ->get();
 
         $rolpago=new RolPago;
@@ -105,9 +105,11 @@ class RolPagoGenController extends Controller
         $rolespago=DB::table('rolpago')
         ->join('detalle_rol','rolpago.id','=','detalle_rol.rolpago_id')
         ->join('empleados','rolpago.empleado','=','empleados.id')
+        //->join('historial','rolpago.','=','')
         //->join('cargos','empleados.cargo','=','cargos.id')
-        ->select('empleado.id','empleado.nombres','empleado.apellidos','empleado.')
+        ->select('empleados.id','empleados.nombres','empleados.apellidos','rolpago.fecha_registro',/*'historial.dias_trabajados',*/'detalle_rol.sueldo','detalle_rol.total_ingresos','detalle_rol.seguridad_social','detalle_rol.total_egresos','detalle_rol.total_pagar')
         ->get();
+        return $rolespago->all();
 
 
         /*$inforEmpleado=DB::table('empleados')

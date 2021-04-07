@@ -1,5 +1,3 @@
-use Illuminate\Http\Request;
-
 @extends('adminlte::page')
 @section('title', 'Rol de Pago')
 
