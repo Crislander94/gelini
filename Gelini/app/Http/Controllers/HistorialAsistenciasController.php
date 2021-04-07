@@ -30,7 +30,7 @@ class HistorialAsistenciasController extends Controller
     {
         //
         $empleadosS=DB::table('empleados')
-        ->join('historial','historial.empleado_id','<>','empleados.id')
+        ->join('historial','historial.empleado_id','=','empleados.id')
         ->select('empleados.id','empleados.nombres','empleados.apellidos')
         ->get(); 
 

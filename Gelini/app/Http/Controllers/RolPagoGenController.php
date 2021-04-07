@@ -53,7 +53,6 @@ class RolPagoGenController extends Controller
             $vsueldo=420;
             $vmultasfaltas=0;
             $vcargo='';
-            $vprestamos=0;
 
             $vfaltas=$infor->dias_ausencia;
             $vcargo=strtoupper($infor->descripcion); 

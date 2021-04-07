@@ -37,13 +37,13 @@ class CreateEmpleadoTable extends Migration
             ->contrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->foreign('departamento')->references('id')->on('departamento');
+            $table->foreign('departamento')->references('id')->on('departamentos');
             //Foranea a cargo
             $table->unsignedBigInteger('cargo')
             ->contrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->foreign('cargo')->references('id')->on('cargo');
+            $table->foreign('cargo')->references('id')->on('cargos');
             //Foranea a usuarios
             $table->unsignedBigInteger('rolUsuario')
             ->contrained()
