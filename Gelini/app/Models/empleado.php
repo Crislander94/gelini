@@ -21,6 +21,10 @@ class empleado extends Model
     'fsalida',
     'cargo',
     'departamento',
-    'contrato'];                  
+    'contrato',
+    'decimo3_estado',
+    'decimo4_estado',
+    'fondoreserva_estado'
+    ];                  
 }
 

@@ -69,6 +69,11 @@ class EmpleadoController extends Controller
             
         ];
 
+        $estados=[
+            'A'=>'Acumulación Anual',
+            'M' =>'Mensualizado',
+        ];
+
         $selectobra =DB::table('obras')->select('*')->get(); 
         $obra = array();
         foreach($selectobra as $ob){
@@ -87,7 +92,7 @@ class EmpleadoController extends Controller
             $contrato["$contra->id"] = $contra->descripcion;
         }
 
-        return view('admin.empleados.create',compact('cargos','genero','carga','obra','departamento','contrato'));
+        return view('admin.empleados.create',compact('cargos','genero','carga','estados','obra','departamento','contrato'));
 
     }
 
@@ -167,6 +172,11 @@ class EmpleadoController extends Controller
             '5' =>'5 Hijos'
             
         ];
+
+        $estados=[
+            'A'=>'Acumulación Anual',
+            'M' =>'Mensualizado',
+        ];
         
         $seleccargos=DB::table('cargos')->select('*')->get(); 
         $cargos = array();
@@ -193,7 +203,7 @@ class EmpleadoController extends Controller
             $contrato["$contra->id"] = $contra->descripcion;
         }
 
-        return view('admin.empleados.edit',compact('empleado','cargos','genero','carga','obra','departamento','contrato'));
+        return view('admin.empleados.edit',compact('empleado','cargos','genero','estados','carga','obra','departamento','contrato'));
 
     }
 

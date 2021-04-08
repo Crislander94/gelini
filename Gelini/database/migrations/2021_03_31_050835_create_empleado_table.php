@@ -25,6 +25,11 @@ class CreateEmpleadoTable extends Migration
             $table->date('fsalida');
             $table->integer('numeroCargas');
             $table->string('telefono');
+
+            $table->char('decimo3_estado',1); //Pueden tener 2 estados
+            $table->char('decimo4_estado',1); //M->mensualizado o A->AnualAAA jajajaja
+            $table->char('fondoreserva_estado',1);
+            
             $table->timestamps();
             //Foranea a contrato
             $table->unsignedBigInteger('contrato')
