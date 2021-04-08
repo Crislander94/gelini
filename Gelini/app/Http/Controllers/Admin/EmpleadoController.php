@@ -30,6 +30,10 @@ class EmpleadoController extends Controller
             ->select('e.*','d.descripcion as departamentos','c.descripcion as contrato',
             'ca.descripcion as cargo')
             ->where('cedula','like','%'.$buscar.'%')
+            ->orwhere('nombres','like','%'.$buscar.'%')
+            ->orwhere('apellidos','like','%'.$buscar.'%')
+            ->orwhere('genero','like','%'.$buscar.'%')
+            ->orderby('e.id','desc')
             ->paginate(7);
            /* ->get();
             */

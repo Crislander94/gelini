@@ -44,7 +44,7 @@
 
                     <div class="form-group">
                         {!! Form::label('fechanacimiento','Fecha Nacimiento')!!}
-                        {!! Form::date('fechanacimiento', \Carbon\Carbon::now(), ['class' => 'form-control'])  !!}
+                        {!! Form::date('fechanacimiento', null, ['class' => 'form-control'])  !!}
 
                         @error('fechanacimiento')
                             <span class="text-danger"><b> {{$message}}</b></span>
@@ -100,7 +100,7 @@
 
                     <div class="form-group">
                         {!! Form::label('fsalida','Fecha Salida')!!}
-                        {!! Form::date('fsalida', \Carbon\Carbon::now() , ['class' => 'form-control'])  !!}
+                        {!! Form::date('fsalida', null , ['class' => 'form-control'])  !!}
 
                         @error('fsalida')
                             <span class="text-danger"><b> {{$message}}</b></span>

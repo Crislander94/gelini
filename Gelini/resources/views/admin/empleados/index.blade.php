@@ -18,7 +18,7 @@
   <div class="container-fluid">
   <a class="btn btn-primary " href="{{route('admin.empleados.create')}}"> <i class="fas fa-user-plus "> NUEVO </i></a> </h1> 
     <form class="d-flex">
-      <input name="buscar" class="form-control me-2" type="search" placeholder="Buscar por cedula" aria-label="Search" value="{{$buscar}}">
+      <input name="buscar" class="form-control me-2" type="search" placeholder="Buscar " aria-label="Search" value="{{$buscar}}">
       <button class="btn btn-success" type="submit">Buscar</button>
     </form>
   </div>
@@ -36,8 +36,8 @@
         <table class="table table-responsive  table-hover table-bordered table-condensed">
             <thead class="text-center" >
                 <tr>
-                    <th class="table-primary">#</th>
-                    <th>Cedula</th>
+                    
+                    <th class="table-primary">Cedula</th>
                     <th>Nombre</th>
                     <th>Apelllido</th>
                     <th>Genero</th>
@@ -54,9 +54,8 @@
             </thead>
             <tbody class="text-center">
                 @foreach($empleados as $empleado)
-                    <tr>
-                        <td class="table-primary"><b> {{$empleado-> id}}</b></td>
-                        <td>{{$empleado-> cedula}}</td>
+                    <tr>                     
+                        <td class="table-primary">{{$empleado-> cedula}}</td>
                         <td>{{$empleado-> nombres}}</td>
                         <td>{{$empleado-> apellidos}}</td>
                         <td>{{$empleado-> genero}}</td>
