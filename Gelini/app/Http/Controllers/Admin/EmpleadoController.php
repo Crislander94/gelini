@@ -63,6 +63,11 @@ class EmpleadoController extends Controller
             
         ];
 
+        $estado_servicio=[
+            'A'=>'Activo: tiene contrato vigente',
+            'P' =>'Pasivo: no tiene contrato vigente por ahora'
+        ];
+
         $carga =[
             '0'=>'NO tiene',
             '1' =>'1 Hijo',
@@ -71,6 +76,11 @@ class EmpleadoController extends Controller
             '4' =>'4 Hijos',
             '5' =>'5 Hijos'
             
+        ];
+
+        $estados=[
+            'A'=>'Acumulación Anual',
+            'M' =>'Mensualizado',
         ];
 
         $selectobra =DB::table('obras')->select('*')->get(); 
@@ -91,7 +101,7 @@ class EmpleadoController extends Controller
             $contrato["$contra->id"] = $contra->descripcion;
         }
 
-        return view('admin.empleados.create',compact('cargos','genero','carga','obra','departamento','contrato'));
+        return view('admin.empleados.create',compact('cargos','estado_servicio','genero','carga','estados','obra','departamento','contrato'));
 
     }
 
@@ -118,7 +128,10 @@ class EmpleadoController extends Controller
             'cargo' =>'required',
          /*   'obra' =>'required', */
             'departamento' =>'required',
-            'contrato' =>'required'
+            'contrato' =>'required',
+            'decimo3_estado' =>'required',
+            'decimo4_estado' =>'required',
+            'fondoreserva_estado' =>'required',
     ]);
         $empleado = empleado::create($request->all());
 
@@ -171,6 +184,16 @@ class EmpleadoController extends Controller
             '5' =>'5 Hijos'
             
         ];
+
+        $estado_servicio=[
+            'A'=>'Activo: tiene contrato vigente',
+            'P' =>'Pasivo: no tiene contrato vigente por ahora'
+        ];
+
+        $estados=[
+            'A'=>'Acumulación Anual',
+            'M' =>'Mensualizado',
+        ];
         
         $seleccargos=DB::table('cargos')->select('*')->get(); 
         $cargos = array();
@@ -197,7 +220,7 @@ class EmpleadoController extends Controller
             $contrato["$contra->id"] = $contra->descripcion;
         }
 
-        return view('admin.empleados.edit',compact('empleado','cargos','genero','carga','obra','departamento','contrato'));
+        return view('admin.empleados.edit',compact('empleado','cargos','estado_servicio','genero','estados','carga','obra','departamento','contrato'));
 
     }
 

@@ -19,7 +19,7 @@ class CreateEmpleadoFinancieraTable extends Migration
             ->contrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->foreign('idEmpleado')->references('id')->on('empleado');
+            $table->foreign('idEmpleado')->references('id')->on('empleados');
             //Foranea a Informacion Financiera
             $table->unsignedBigInteger('informacionFinanciera')
             ->contrained()

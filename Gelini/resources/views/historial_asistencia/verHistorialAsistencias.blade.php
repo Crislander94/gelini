@@ -1,22 +1,21 @@
 @extends('adminlte::page')
-@section('title', 'Rol de Pagos')
+
+@section('title', 'Historiales de Asistencia')
 
 @section('content_header')
-    <div> 
-    
-    <h1><b>Historial de Empleados</b> </h1>
-    </div>
-    
+    <h1>Historia de Asistencias de los Empleados</h1>
 @stop
 
+
 @section('content')
-    <div class="card">
-        
+
+<div class="card">        
         <div class="card-body">
         <table class="table table-hover table-bordered table-condensed">
             <thead class="text-center">
                 <tr>
-                    <th>Empleado</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
                     <th>Periodo</th>
                     <th>Dias Trabajados</th>
                     <th>Dias Ausencia</th>
@@ -27,16 +26,17 @@
             <tbody class="text-center">
                 @foreach($historiales as $historial)
                     <tr>
-                        <td>{{$historial->empleado_id}}</td>
-                        <td>{{$historial->fecha_registro}}</td>
-                        <td>{{$historial->dias_trabajados}}</td>
-                        <td>{{$historial->dias_ausencia}}</td>
-                        <td>{{$historial->observacion}}</td>
+                        <td>{{ $historial-> nombres }}</td>
+                        <td>{{$historial-> apellidos}}</td>
+                        <td>{{$historial-> fecha_registro}}</td>
+                        <td>{{$historial-> dias_trabajados}}</td>
+                        <td>{{$historial-> dias_ausencia}}</td>
+                        <td>{{$historial-> observacion}}</td>
                         <td width="10px" >
-                            <a class="btn btn-warning btn-sm " href="{{route('admin.empleados.edit',$historial)}}" ><i class="fas fa-user-edit"> </i></a>
+                            <a class="btn btn-warning btn-sm " href="" ><i class="fas fa-user-edit"> </i></a>
                         </td>    
                         <td width="10px" >
-                            <form action=" {{route('admin.empleados.destroy', $historial)}}" method="POST" >
+                            <form action="" method="POST" >
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger btn-sm"> <i class="fas fa-user-times" ></i> </button>
@@ -48,4 +48,6 @@
             </tbody>
         </div>
     </div>
-@endsection
+@stop
+
+

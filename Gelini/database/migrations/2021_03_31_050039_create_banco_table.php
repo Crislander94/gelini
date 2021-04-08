@@ -13,9 +13,10 @@ class CreateBancoTable extends Migration
      */
     public function up()
     {
-        Schema::create('banco', function (Blueprint $table) {
+        Schema::create('bancos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_banco');
+	    $table->integer('codigo_banco');
+	    $table->string('nombre_banco');
             $table->timestamps();
         });
     }

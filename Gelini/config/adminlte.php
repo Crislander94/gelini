@@ -253,8 +253,7 @@ return [
                 ],
                 [
                     'text'    => 'Historial',
-                    /*admin.historial.index*/
-                    'url'     => '#',
+                    'url'     => 'historial.index',
                     'icon'    => 'far fa-calendar-alt fa-fw',
                 ],
             ],
@@ -277,6 +276,12 @@ return [
                     'text'    => 'Rol de Pagos',
                     'url'     => '/roles',
                     'icon'    => 'fas fa-file-contract fa-fw',
+            
+                ],
+                [
+                    'text'    => 'Bancos',
+                    'url'     => '/bancos',
+                    'icon'    => 'fas fa-university fa-fw',
             
                 ],
             

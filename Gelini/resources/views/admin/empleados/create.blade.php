@@ -72,6 +72,16 @@
                     </div>
 
                     <div class="form-group form-select">
+                        {!! Form::label('estado','Estado de Servicio')!!}
+                        {!! Form::select('estado',$estado_servicio,null,['class'=>'form-control','placeholder' => 'Seleccione un estado...'])!!}
+
+                        @error('genero')
+                            <span class="text-danger"><b> {{$message}}</b></span>
+                        @enderror
+                    </div>
+
+
+                    <div class="form-group form-select">
                         {!! Form::label('genero','Genero')!!}
                         {!! Form::select('genero',$genero,null,['class'=>'form-control','placeholder' => 'Seleccione un Genero...'])!!}
 
@@ -140,7 +150,7 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('contrato','Contrtato')!!}
+                        {!! Form::label('contrato','Contrato')!!}
                         {!! Form::select('contrato',$contrato,null,['class'=>'form-control','placeholder' => 'Seleccione un tipo de contrato...'])!!}
 
                         @error('contrato')
@@ -148,7 +158,33 @@
                         @enderror
 
                     </div>
+                    <div class="form-group">
+                        {!! Form::label('decimo3_estado','Estado del Decimo Tercer Sueldo')!!}
+                        {!! Form::select('decimo3_estado',$estados,null,['class'=>'form-control','placeholder' => 'Seleccione un estado...'])!!}
 
+                        @error('decimo3_estado')
+                            <span class="text-danger"><b> {{$message}}</b></span>
+                        @enderror
+
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('decimo4_estado','Estado del Decimo Cuarto Sueldo')!!}
+                        {!! Form::select('decimo4_estado',$estados,null,['class'=>'form-control','placeholder' => 'Seleccione un estado...'])!!}
+
+                        @error('decimo4_estado')
+                            <span class="text-danger"><b> {{$message}}</b></span>
+                        @enderror
+
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('fondoreserva_estado','Estado de los Fondos de Reserva')!!}
+                        {!! Form::select('fondoreserva_estado',$estados,null,['class'=>'form-control','placeholder' => 'Seleccione un estado...'])!!}
+
+                        @error('fondoreserva_estado')
+                            <span class="text-danger"><b> {{$message}}</b></span>
+                        @enderror
+
+                    </div>
                     
                     {!!Form::submit('Guardar',['class=" btn btn-success btn-lg" ']) !!}
                     {!!Form::reset('Cancelar',['class=" btn btn-danger btn-lg" ']) !!}

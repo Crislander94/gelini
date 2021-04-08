@@ -31,5 +31,7 @@ Route::resource('obras', 'App\Http\Controllers\ObrasController');
 Route::resource('empleados', 'App\Http\Controllers\admin\EmpleadoController');
 
 Route::resource('departamentos', 'App\Http\Controllers\departamentosController');
-Route::resource('historial','App\Http\Controllers\RolPagoController');
+Route::resource('historial','App\Http\Controllers\HistorialAsistenciasController');
 Route::resource('roles','App\Http\Controllers\RolPagoGenController');
+Route::resource('bancos','App\Http\Controllers\bancosController');
+
