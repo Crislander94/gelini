@@ -72,6 +72,16 @@
                     </div>
 
                     <div class="form-group form-select">
+                        {!! Form::label('estado','Estado de Servicio')!!}
+                        {!! Form::select('estado',$estado_servicio,null,['class'=>'form-control','placeholder' => 'Seleccione un estado...'])!!}
+
+                        @error('genero')
+                            <span class="text-danger"><b> {{$message}}</b></span>
+                        @enderror
+                    </div>
+
+
+                    <div class="form-group form-select">
                         {!! Form::label('genero','Genero')!!}
                         {!! Form::select('genero',$genero,null,['class'=>'form-control','placeholder' => 'Seleccione un Genero...'])!!}
 

@@ -18,18 +18,17 @@ class CreateEmpleadoTable extends Migration
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('cedula');
+            $table->char('estado',1); //A-activo o P-pasivo
             $table->string('genero');
             $table->string('email');
             $table->date('fechanacimiento');
             $table->date('fingreso');
             $table->date('fsalida');
-            $table->integer('numeroCargas');
+            $table->integer('cargas');
             $table->string('telefono');
-
             $table->char('decimo3_estado',1); //Pueden tener 2 estados
             $table->char('decimo4_estado',1); //M->mensualizado o A->AnualAAA jajajaja
             $table->char('fondoreserva_estado',1);
-            
             $table->timestamps();
             //Foranea a contrato
             $table->unsignedBigInteger('contrato')
