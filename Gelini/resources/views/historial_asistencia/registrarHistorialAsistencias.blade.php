@@ -1,18 +1,14 @@
-use Illuminate\Http\Request;
-
 @extends('adminlte::page')
 @section('title', 'Rol de Pago')
 
 @section('content_header')
-    <h1>Historia de los Empleados</h1>
+    <h1>Roles de Pago Generados</h1>
 @stop
 
 
 @section('content')
-  {!! Form::open(['route'=>'historial.store'])!!}
-  
+{!! Form::open(['route'=>'historial.store'])!!}
         <h3>Historial de Asistencias de <b> {{date('M-Y') }}</b></h3> 
-        
         <div class="row">
           <div class="col-md-6 employeeform">
             <span id="message"></span>

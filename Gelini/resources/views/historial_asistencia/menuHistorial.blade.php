@@ -1,6 +1,3 @@
-use Illuminate\Http\Request;
-use app\Http\Controller\RolPagoController;
-
 @extends('adminlte::page')
 @section('title', 'MENU-Rol de Pago')
 @section('content_header')

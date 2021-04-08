@@ -253,8 +253,7 @@ return [
                 ],
                 [
                     'text'    => 'Historial',
-                    /*admin.historial.index*/
-                    'url'     => '#',
+                    'url'     => 'historial.index',
                     'icon'    => 'far fa-calendar-alt fa-fw',
                 ],
             ],

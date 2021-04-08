@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -8,7 +9,7 @@ use App\Models\Historial;
 use App\Models\RolPago;
 use App\Http\Requests;
 
-class RolPagoController extends Controller
+class HistorialAsistenciasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +30,8 @@ class RolPagoController extends Controller
     {
         //
         $empleadosS=DB::table('empleados')
-        ->select('*')
+        //->join('historial','historial.empleado_id','=','empleados.id')
+        ->select('empleados.id','empleados.nombres','empleados.apellidos')
         ->get(); 
 
         $empleados = array();
@@ -67,8 +69,14 @@ class RolPagoController extends Controller
     public function show($id)
     {
         //
-        $historiales=Historial::all();
+        $historiales=DB::table('historial')
+        ->join('empleados','empleado_id','=','empleados.id')
+        ->select('historial.id','empleados.nombres','empleados.apellidos','historial.fecha_registro','historial.dias_trabajados','historial.dias_ausencia','historial.observacion')
+        //->where('fecha_registro','=',)
+        ->get();
+
         return view('historial_asistencia.verHistorialAsistencias',compact('historiales'));
+        //return $historiales;
     }
 
     /**

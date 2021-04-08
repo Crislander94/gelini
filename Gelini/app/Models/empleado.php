@@ -13,14 +13,19 @@ class empleado extends Model
     'nombres',
     'apellidos',
     'fechanacimiento',
+    'estado',
     'email',
     'telefono',
     'genero',
-    'numeroCargas',
+    'cargas',
     'fingreso',
     'fsalida',
     'cargo',
     'departamento',
-    'contrato'];                  
+    'contrato',
+    'decimo3_estado',
+    'decimo4_estado',
+    'fondoreserva_estado'
+    ];                  
 }
 
