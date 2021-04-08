@@ -279,6 +279,12 @@ return [
                     'icon'    => 'fas fa-file-contract fa-fw',
             
                 ],
+                [
+                    'text'    => 'Bancos',
+                    'url'     => '/bancos',
+                    'icon'    => 'fas fa-university fa-fw',
+            
+                ],
             
         
         ['header' => 'account_settings'],
