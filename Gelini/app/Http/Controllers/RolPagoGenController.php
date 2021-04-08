@@ -38,6 +38,7 @@ class RolPagoGenController extends Controller
         $inforEmpleado=DB::table('empleados')
         ->join('historial','empleados.id','=','historial.empleado_id')
         ->join('cargo','empleados.cargo','=','cargo.id')
+        
         ->select('empleados.id','cargo.descripcion','historial.dias_trabajados','historial.dias_ausencia') //ojo con el sueldo
         ->get();
 

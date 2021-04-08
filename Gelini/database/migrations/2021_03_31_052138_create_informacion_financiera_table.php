@@ -22,7 +22,7 @@ class CreateInformacionFinancieraTable extends Migration
             ->contrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->foreign('banco')->references('id')->on('banco');
+            $table->foreign('banco')->references('id')->on('bancos');
             //Foranea a tipoCuenta
             $table->unsignedBigInteger('tipoCuenta')
             ->contrained()
