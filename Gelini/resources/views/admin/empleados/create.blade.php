@@ -90,6 +90,12 @@
                         @enderror
                     </div>
 
+                    <div class="form-group form-select">
+                        {!! Form::label('bancos','Bancos')!!}
+                        {!! Form::select('bancos',$bancos,null,['class'=>'form-control','placeholder' => 'Seleccione un banco...'])!!}
+
+                    </div>
+
                     <div class="form-group">
                         {!! Form::label('cargas','Cargas')!!}
                         {!! Form::select('cargas',$carga,null,['class'=>'form-control'])!!}

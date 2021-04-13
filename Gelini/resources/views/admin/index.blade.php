@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Gelini')
+@section('title', 'Gelini S.A.')
 
 @section('content_header')
     <h1>Tablero</h1>

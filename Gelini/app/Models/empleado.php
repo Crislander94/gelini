@@ -9,6 +9,7 @@ class empleado extends Model
 {
     use HasFactory;
     protected $fillable =[
+    'id',
     'cedula',
     'nombres',
     'apellidos',
@@ -25,7 +26,9 @@ class empleado extends Model
     'contrato',
     'decimo3_estado',
     'decimo4_estado',
-    'fondoreserva_estado'
+    'fondoreserva_estado',
+    'obra',
+    'banco',
     ];                  
 }
 

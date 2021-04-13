@@ -54,6 +54,18 @@ class CreateEmpleadoTable extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreign('rolUsuario')->references('id')->on('users');
+            //Foranea de Obras
+            $table->unsignedBigInteger('obra')
+            ->contrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreign('obra')->references('id')->on('obras');
+            //Foranea de bancos
+            $table->unsignedBigInteger('banco')
+            ->contrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreign('banco')->references('id')->on('bancos');
             
         });
         

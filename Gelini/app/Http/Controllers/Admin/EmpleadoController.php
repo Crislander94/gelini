@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 /*si no es empleado es Empleado*/
 use Illuminate\Support\Facades\DB;
 use App\Models\empleado;
-use App\Models\departamento;
 
 
 class EmpleadoController extends Controller
@@ -27,8 +26,9 @@ class EmpleadoController extends Controller
             ->join('contrato as c', 'e.contrato', '=', 'c.id')
             ->join('departamentos as d', 'e.departamento', '=', 'd.id')
             ->join('cargos as ca', 'e.cargo', '=', 'ca.id')
-            ->select('e.*','d.descripcion as departamentos','c.descripcion as contrato',
-            'ca.descripcion as cargo')
+            ->join('obras as obr', 'e.obra', '=', 'obr.id') 
+            ->select('e.*','d.descripcion as departamentos','c.descripcion as contrato','ca.descripcion as cargo',
+            'obr.Nombre as obra')
             ->where('cedula','like','%'.$buscar.'%')
             ->orwhere('nombres','like','%'.$buscar.'%')
             ->orwhere('apellidos','like','%'.$buscar.'%')
@@ -37,7 +37,7 @@ class EmpleadoController extends Controller
             ->paginate(7);
            /* ->get();
             */
-        
+            
         /* carpeta admin/ capeta empleados / archivo .php index*/
      /*   return view('admin.empleados.index', array('empleados' => $empleados));*/
      return view('admin.empleados.index',compact('empleados','buscar'));
@@ -55,6 +55,12 @@ class EmpleadoController extends Controller
         $cargos = array();
         foreach($seleccargos as $carg){
             $cargos["$carg->id"] = $carg->descripcion;
+        }
+
+        $selectbanco=DB::table('bancos')->select('*')->get(); 
+        $bancos = array();
+        foreach($selectbanco as $banc){
+            $bancos["$banc->id"] = $banc->nombre_banco;
         }
          
         $genero =[
@@ -101,7 +107,8 @@ class EmpleadoController extends Controller
             $contrato["$contra->id"] = $contra->descripcion;
         }
 
-        return view('admin.empleados.create',compact('cargos','estado_servicio','genero','carga','estados','obra','departamento','contrato'));
+       
+        return view('admin.empleados.create',compact('bancos','cargos','estado_servicio','genero','carga','estados','obra','departamento','contrato'));
 
     }
 
@@ -126,7 +133,8 @@ class EmpleadoController extends Controller
             'fsalida' =>'required',
             /*foraneas*/
             'cargo' =>'required',
-         /*   'obra' =>'required', */
+            'obra' =>'required',
+            'banco' =>'required',
             'departamento' =>'required',
             'contrato' =>'required',
             'decimo3_estado' =>'required',
@@ -150,11 +158,15 @@ class EmpleadoController extends Controller
     {
 
         $empleados = DB::table('empleados as e')
-            ->join('contrato as c', 'e.contrato', '=', 'c.id')
-            ->join('departamento as d', 'e.departamento', '=', 'd.id')
-            ->join('cargos as ca', 'e.cargo', '=', 'ca.id')
-            ->select('e.*','d.descripcion as departamento','c.descripcion as contrato',
-            'ca.descripcion as cargo')
+        ->join('contrato as c', 'e.contrato', '=', 'c.id')
+        ->join('departamentos as d', 'e.departamento', '=', 'd.id')
+        ->join('cargos as ca', 'e.cargo', '=', 'ca.id')
+        ->join('obras as obr', 'e.obra', '=', 'obr.id')  
+
+
+        ->select('e.*','d.descripcion as departamentos','c.descripcion as contrato','ca.descripcion as cargo',
+        'obr.Nombre as obra')
+
             ->get();
       
         
@@ -220,7 +232,13 @@ class EmpleadoController extends Controller
             $contrato["$contra->id"] = $contra->descripcion;
         }
 
-        return view('admin.empleados.edit',compact('empleado','cargos','estado_servicio','genero','estados','carga','obra','departamento','contrato'));
+        $selectbanco=DB::table('bancos')->select('*')->get(); 
+        $bancos = array();
+        foreach($selectbanco as $banc){
+            $bancos["$banc->id"] = $banc->nombre_banco;
+        }
+
+        return view('admin.empleados.edit',compact('empleado','bancos','cargos','estado_servicio','genero','estados','carga','obra','departamento','contrato'));
 
     }
 
@@ -244,15 +262,15 @@ class EmpleadoController extends Controller
             'cargas' =>'required',
             'fingreso' =>'required',
             'fsalida' =>'required',
-            /*foraneas*/
             'cargo' =>'required',
-         /*   'obra' =>'required', */
+            'obra' =>'required',
+            'banco' =>'required',
             'departamento' =>'required',
             'contrato' =>'required'
     ]);
             $empleado->update($request->all());
 
-            return \redirect()->route('admin.empleados.index',$empleado)->with('informacion','EMPLEADO ACTUALIZADO CON EXITO');
+            return redirect()->route('admin.empleados.index',$empleado)->with('informacion','EMPLEADO ACTUALIZADO CON EXITO');
     }
 
     /**

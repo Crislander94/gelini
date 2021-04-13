@@ -4,7 +4,7 @@
 @section('content_header')
     <div> 
     
-    <h1><b class="text-center"> Listado de Empleados</b> 
+    <h1><b class="text-center"> Listado de Empleados</b>  </h1> 
 
     </div>
     
@@ -16,7 +16,7 @@
 <div class="card">
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-  <a class="btn btn-primary " href="{{route('admin.empleados.create')}}"> <i class="fas fa-user-plus "> NUEVO </i></a> </h1> 
+  <a class="btn btn-primary " href="{{route('admin.empleados.create')}}"> <i class="fas fa-user-plus "> NUEVO </i></a> 
     <form class="d-flex">
       <input name="buscar" class="form-control me-2" type="search" placeholder="Buscar " aria-label="Search" value="{{$buscar}}">
       <button class="btn btn-success" type="submit">Buscar</button>
@@ -33,6 +33,8 @@
     </div>
 
 @endif
+<div class="card">
+        <div class="card-body">
         <table class="table table-responsive  table-hover table-bordered table-condensed">
             <thead class="text-center" >
                 <tr>
@@ -46,6 +48,7 @@
                     <th>Obras</th>
                     <th>Contrato</th>
                     <th>Cargo</th>
+                    <th>Banco</th>
                     <th>Departamento</th>
                     <th>Ingreso</th>
                     <th> Salida</th>
@@ -61,9 +64,10 @@
                         <td>{{$empleado-> genero}}</td>
                         <td>{{$empleado-> telefono}}</td>
                         <td>{{$empleado-> email}}</td>
-                        <td >{{$empleado-> numeroCargas}}</td>
+                        <td>{{$empleado-> obra}}</td>
                         <td>{{$empleado-> contrato}}</td>
                         <td>{{$empleado-> cargo}}</td>
+                        <td>{{$empleado-> banco}}</td>
                         <td>{{$empleado-> departamentos}}</td>
                         <td>{{$empleado-> fingreso}}</td>
                         <td>{{$empleado-> fsalida}}</td>
@@ -85,6 +89,8 @@
         </table>
      
         </div>
+</div>
+</div>
 </div>
 
 {{$empleados->links()}}

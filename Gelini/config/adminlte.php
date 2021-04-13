@@ -273,10 +273,9 @@ return [
             
                 ],
                 [
-                    'text'    => 'Rol de Pagos',
-                    'url'     => '/roles',
-                    'icon'    => 'fas fa-file-contract fa-fw',
-            
+                    'text' => 'Contratos',
+                    'route'  => 'admin.contratos.index',
+                    'icon'    => 'far fa-address-book fa-fw',
                 ],
                 [
                     'text'    => 'Bancos',
@@ -284,6 +283,13 @@ return [
                     'icon'    => 'fas fa-university fa-fw',
             
                 ],
+                
+                [
+                    'text'    => 'Rol de Pagos',
+                    'url'     => '/roles',
+                    'icon'    => 'fas fa-file-contract fa-fw',
+                ],
+                
             
         
         ['header' => 'account_settings'],
