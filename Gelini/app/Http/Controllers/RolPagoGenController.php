@@ -16,15 +16,7 @@ class RolPagoGenController extends Controller
      */
     public function index()
     {
-        //
-        return view('roles.menuRolPago');
-        
-        
-    
-        
-    
-    
-            //return view('roles.generarRolPago');
+        return "roles/create para creae roles de pago o roles/show para ver los generados";
     }
 
     /**
@@ -37,9 +29,9 @@ class RolPagoGenController extends Controller
         //
         $inforEmpleado=DB::table('empleados')
         ->join('historial','empleados.id','=','historial.empleado_id')
-        ->join('cargo','empleados.cargo','=','cargo.id')
+        ->join('cargos','empleados.cargo','=','cargos.id')
         
-        ->select('empleados.id','cargo.descripcion','historial.dias_trabajados','historial.dias_ausencia') //ojo con el sueldo
+        ->select('empleados.id','cargos.descripcion','historial.dias_trabajados','historial.dias_ausencia') //ojo con el sueldo
         ->get();
 
         $rolpago=new RolPago;

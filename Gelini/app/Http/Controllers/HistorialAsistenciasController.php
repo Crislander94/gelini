@@ -57,7 +57,7 @@ class HistorialAsistenciasController extends Controller
         $historialt->observacion=$request->input('observacion');
         $historialt->save();
         //$historialt->all();
-        return view('historial_asistencia.verHistorialAsistencias');
+        return redirect()->route('historial.index');
     }
 
     /**
