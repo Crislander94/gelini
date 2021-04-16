@@ -26,9 +26,10 @@ class EmpleadoController extends Controller
             ->join('contrato as c', 'e.contrato', '=', 'c.id')
             ->join('departamentos as d', 'e.departamento', '=', 'd.id')
             ->join('cargos as ca', 'e.cargo', '=', 'ca.id')
-            ->join('obras as obr', 'e.obra', '=', 'obr.id') 
+            ->join('obras as obr', 'e.obra', '=', 'obr.id')
+            ->join('bancos as ban', 'e.banco', '=', 'ban.id')  
             ->select('e.*','d.descripcion as departamentos','c.descripcion as contrato','ca.descripcion as cargo',
-            'obr.Nombre as obra')
+            'obr.Nombre as obra','ban.nombre_banco as banco')
             ->where('cedula','like','%'.$buscar.'%')
             ->orwhere('nombres','like','%'.$buscar.'%')
             ->orwhere('apellidos','like','%'.$buscar.'%')

@@ -7,8 +7,6 @@
 
 @section('content')
 
-
-
     <div class="card">
         <div class="card-body ">
             {!! Form::open(['route'=>'admin.empleados.store'])!!}
@@ -75,7 +73,7 @@
                         {!! Form::label('estado','Estado de Servicio')!!}
                         {!! Form::select('estado',$estado_servicio,null,['class'=>'form-control','placeholder' => 'Seleccione un estado...'])!!}
 
-                        @error('genero')
+                        @error('estado')
                             <span class="text-danger"><b> {{$message}}</b></span>
                         @enderror
                     </div>
@@ -91,9 +89,13 @@
                     </div>
 
                     <div class="form-group form-select">
-                        {!! Form::label('bancos','Bancos')!!}
-                        {!! Form::select('bancos',$bancos,null,['class'=>'form-control','placeholder' => 'Seleccione un banco...'])!!}
+                        {!! Form::label('banco','Bancos')!!}
+                        {!! Form::select('banco',$bancos,null,['class'=>'form-control','placeholder' => 'Seleccione un banco...'])!!}
 
+                        @error('banco')
+                            <span class="text-danger"><b> {{$message}}</b></span>
+                        @enderror
+                    
                     </div>
 
                     <div class="form-group">

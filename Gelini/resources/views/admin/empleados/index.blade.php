@@ -33,8 +33,7 @@
     </div>
 
 @endif
-<div class="card">
-        <div class="card-body">
+        
         <table class="table table-responsive  table-hover table-bordered table-condensed">
             <thead class="text-center" >
                 <tr>
@@ -71,10 +70,10 @@
                         <td>{{$empleado-> departamentos}}</td>
                         <td>{{$empleado-> fingreso}}</td>
                         <td>{{$empleado-> fsalida}}</td>
-                        <td  width="10px" >
+                        <td  >
                             <a class="btn btn-warning btn-sm " href="{{route('admin.empleados.edit',$empleado->id)}}" ><i class="fas fa-user-edit"> </i></a>
                         </td>    
-                        <td width="10px" >
+                        <td >
                             <form action=" {{route('admin.empleados.destroy', $empleado->id)}}" method="POST" >
                                 @csrf
                                 @method('delete')
@@ -90,8 +89,7 @@
      
         </div>
 </div>
-</div>
-</div>
+
 
 {{$empleados->links()}}
 

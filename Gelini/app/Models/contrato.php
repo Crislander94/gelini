@@ -12,7 +12,8 @@ class contrato extends Model
 
     protected $fillable=[
         
-        'descripcion'
+        'descripcion',
+        'created_at'
         
 
 

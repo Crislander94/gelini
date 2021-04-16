@@ -17,12 +17,13 @@
     </div>
 
 @endif
-       
+<div class="col-md-15">
             <table class="table table-striped text-center   table-hover table-bordered table-condensed">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>DESCRIPCION</th>
+                    <th>Creado</th>
                     <th colspan="2" >ACCIONES</th>
                     
                 </tr>
@@ -32,6 +33,8 @@
                     <tr>
                         <td>{{$contrato->id}}</td>
                         <td>{{$contrato->descripcion}}</td>
+                        <td>{{\Carbon\Carbon::parse($contrato['created_at'])->diffForHumans() }}</td>
+                        
                         <td  width="10px" >
                             <a class="btn btn-warning btn-sm " href="{{route('admin.contratos.edit',$contrato->id)}}" ><i class="fas fa-user-edit"> </i></a>
                         </td>
