@@ -24,6 +24,7 @@ class CreateDetalleRolTable extends Migration
             $table->foreign('rolpago_id')->references('id')->on('rolpago');
 
             $table->double('sueldo',15,2);
+            $table->double('fondo_reserva',15,2);
             $table->double('total_ingresos',15,2);
             $table->double('total_egresos',15,2);
             $table->double('seguridad_social',15,2);

@@ -14,9 +14,32 @@ class RolPagoGenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return "roles/create para creae roles de pago o roles/show para ver los generados";
+        //
+        /*SELECT e.id, e.nombres, e.apellidos, h.dias_trabajados,dr.sueldo,dr.total_ingresos,
+        dr.seguridad_social,dr.total_egresos,dr.total_pagar
+        FROM empleados e
+        INNER JOIN historial h ON h.empleado_id=e.id
+        INNER JOIN rolpago r ON r.empleado=e.id
+        INNER JOIN detalle_rol dr ON dr.rolpago_id=r.id
+        WHERE month(r.fecha_registro)='4'*/
+
+        $buscar= $request->get('buscar');
+        $rolespago=DB::table('empleados as e')
+        ->join('historial as h','h.empleado_id','=','e.id')
+        ->join('rolpago as r','r.empleado','=','e.id')
+        ->join('detalle_rol as dr','dr.rolpago_id','=','r.id')
+        ->select('e.id','e.cedula','e.nombres','e.apellidos','h.dias_trabajados','dr.sueldo','dr.fondo_reserva','dr.total_ingresos','dr.seguridad_social','dr.total_egresos','dr.total_pagar')
+        ->where('e.cedula','like','%'.$buscar.'%')
+        ->orwhere('e.nombres','like','%'.$buscar.'%')
+        ->orwhere('e.apellidos','like','%'.$buscar.'%')
+        ->get();
+
+
+        //return $rolespago->all();
+        return view('roles_pago.indexRolPago',compact('rolespago','buscar'));
+        //return "roles/create para creae roles de pago o roles/show para ver los generados";
     }
 
     /**
@@ -60,9 +83,10 @@ class RolPagoGenController extends Controller
             $viess=$vsueldo*(0.0945);
             $vingresos=$vsueldo+$vfondosreserva;
             $vegresos=$viess;
-            $vplatatotal=$vingresos+$vegresos;
+            $vplatatotal=$vingresos-$vegresos;
 
             $detallerolpago->sueldo=420;  //mucho ojito con esto
+            $detallerolpago->fondo_reserva=$vfondosreserva;
             $detallerolpago->total_ingresos=$vingresos;
             $detallerolpago->total_egresos=$vegresos;
             $detallerolpago->seguridad_social=$viess;
@@ -141,8 +165,8 @@ class RolPagoGenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        //$request->
     }
 }
