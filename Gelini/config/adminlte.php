@@ -285,6 +285,12 @@ return [
                 ],
                 
                 [
+                    'text'    => 'Cargos',
+                    'url'     => '/cargos',
+                    'icon'    => 'fas fa-university fa-fw',
+            
+                ],
+                [
                     'text'    => 'Rol de Pagos',
                     'url'     => '/roles',
                     'icon'    => 'fas fa-file-contract fa-fw',

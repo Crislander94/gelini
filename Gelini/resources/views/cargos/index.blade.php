@@ -10,14 +10,15 @@
        
             <div class="col-md-15">
                 <div class="card">
-                    <div class="card-header">Departamentos</div>
+                    <div class="card-header">Cargos</div>
                     <img class="mx-auto d-block " src="img/descarga.jpg" alt="">
+                    
                     <div class="card-body">
-                        <a href="{{ url('/departamentos/create') }}" class="btn btn-success btn-sm" title="Add New departamento">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        <a href="{{ url('/cargos/create') }}" class="btn btn-success btn-sm" title="Add New cargo">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar cargos
                         </a>
 
-                        <form method="GET" action="{{ url('/departamentos') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+                        <form method="GET" action="{{ url('/cargos') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
                                 <span class="input-group-append">
@@ -34,29 +35,29 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Descripcion</th><th>Acciones</th>
+                                        <th>#</th><th>Descripcion del Departamento</th><th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($departamentos as $item)
+                                @foreach($cargos as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->descripcion }}</td>
                                         <td>
-                                            <a href="{{ url('/departamentos/' . $item->id) }}" title="View cargo"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
-                                            <a href="{{ url('/departamentos/' . $item->id . '/edit') }}" title="Edit cargo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
+                                            <a href="{{ url('/cargos/' . $item->id) }}" title="View cargo"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
+                                            <a href="{{ url('/cargos/' . $item->id . '/edit') }}" title="Edit cargo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
 
-                                            <form method="POST" action="{{ url('/departamentos' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="{{ url('/cargos' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete cargo" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</button>
                                             </form>
                                         </td>
-                                        </tr>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $departamentos->appends(['search' => Request::get('search')])->render() !!} </div>
+                            <div class="pagination-wrapper"> {!! $cargos->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 
                     </div>

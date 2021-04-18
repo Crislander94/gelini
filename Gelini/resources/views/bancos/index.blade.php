@@ -11,6 +11,8 @@
             <div class="col-md-15">
                 <div class="card">
                     <div class="card-header"><b>Bancos</b></div>
+                    <img class="mx-auto d-block " src="img/descarga.jpg" alt="">
+                    
                     <div class="card-body">
                         <a href="{{ url('/bancos/create') }}" class="btn btn-success btn-sm" title="Agregar nuevo banco">
                             <i class="fa fa-plus" aria-hidden="true"></i> Agregar Nuevo banco

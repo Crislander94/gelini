@@ -30,7 +30,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $departamento->id }}</td>
                                     </tr>
-                                    <tr><th> Descripcion </th><td> {{ $departamento->Descripcion }} </td></tr>
+                                    <tr><th> Descripcion </th><td> {{ $departamento->descripcion }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
