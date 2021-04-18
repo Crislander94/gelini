@@ -2,7 +2,12 @@
 @section('title', 'Gelini')
 
 @section('content_header')
-    <h1>Editar Empleado</h1>
+<div>
+<a href="{{ url('admin/empleados') }}" title="Regresar"><button class="btn btn-light btn-lg">
+<i class="fa fa-arrow-left" aria-hidden="true"></i> <b> Regresar </b></button></a>
+                        
+    
+</div>
 @stop
 
 @section('content')
@@ -10,6 +15,8 @@
 <div class="card">
         <div class="card-body ">
             {!! Form::model($empleado,['route'=>['admin.empleados.update',$empleado],'method' => 'put'])!!}
+            <h1 class=" text-warning text-uppercase"><b> Editar Empleado </b></h1>
+            <div class="text-uppercase">
 
             <div class="form-group">
                         {!! Form::label('cedula','Cedula')!!}

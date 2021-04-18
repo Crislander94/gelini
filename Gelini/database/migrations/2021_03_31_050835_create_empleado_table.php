@@ -50,6 +50,7 @@ class CreateEmpleadoTable extends Migration
             $table->foreign('cargo')->references('id')->on('cargos');
             //Foranea a usuarios
             $table->unsignedBigInteger('rolUsuario')
+            ->nullable()
             ->contrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');

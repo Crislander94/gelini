@@ -2,7 +2,13 @@
 @section('title', 'Gelini')
 
 @section('content_header')
-    <h1><b> Agregar Empleado </b></h1>
+<div>
+<a href="{{ url('admin/empleados') }}" title="Regresar"><button class="btn btn-light btn-lg">
+<i class="fa fa-arrow-left" aria-hidden="true"></i> <b> Regresar </b></button></a>
+                        
+    
+</div>
+
 @stop
 
 @section('content')
@@ -10,8 +16,9 @@
     <div class="card">
         <div class="card-body ">
             {!! Form::open(['route'=>'admin.empleados.store'])!!}
-
-                    <div class="form-group">
+            <h1 class=" text-warning"><b> AGREGAR EMPLEADO </b></h1>
+            <div class="text-uppercase">
+                    <div class="form-group ">
                         {!! Form::label('cedula','Cedula')!!}
                         {!! Form::text ('cedula' , null , ['class' => 'form-control','placeholder="Ingresar Cedula"'])!!}
 
@@ -193,7 +200,7 @@
                         @enderror
 
                     </div>
-                    
+                    </div>
                     {!!Form::submit('Guardar',['class=" btn btn-success btn-lg" ']) !!}
                     {!!Form::reset('Cancelar',['class=" btn btn-danger btn-lg" ']) !!}
 
