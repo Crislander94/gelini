@@ -236,11 +236,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => '/',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Dashboard',
+            'url'         => 'dashboard',
+            'icon'        => 'fas fa-tachometer-alt fa-fw',
         ],
         [
             'text'    => 'Empleados',
@@ -258,19 +256,19 @@ return [
                 ],
             ],
         ],
-            
+
                 [
                     'text'    => 'Obras',
                     'url'     => '/obras',
                     'icon'    => 'fas fa-city fa-fw',
-            
+
                 ],
-            
+
                 [
                     'text'    => 'Departamentos',
                     'url'     => '/departamentos',
                     'icon'    => 'fas fa-building fa-fw',
-            
+
                 ],
                 [
                     'text' => 'Contratos',
@@ -281,35 +279,29 @@ return [
                     'text'    => 'Bancos',
                     'url'     => '/bancos',
                     'icon'    => 'fas fa-university fa-fw',
-            
+
                 ],
-                
+
                 [
                     'text'    => 'Cargos',
                     'url'     => '/cargos',
                     'icon'    => 'fas fa-university fa-fw',
-            
+
                 ],
                 [
                     'text'    => 'Rol de Pagos',
                     'url'     => '/roles',
                     'icon'    => 'fas fa-file-contract fa-fw',
                 ],
-                
-            
-        
+
+
+
         ['header' => 'account_settings'],
         [
             'text' => 'perfil',
             'url'  => 'perfil',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'perfil',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-       
     ],
 
     /*

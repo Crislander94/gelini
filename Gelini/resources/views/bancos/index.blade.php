@@ -7,12 +7,12 @@
 
 @section('content')
     <div class="container">
-       
+
             <div class="col-md-15">
                 <div class="card">
                     <div class="card-header"><b>Bancos</b></div>
                     <img class="mx-auto d-block " src="img/descarga.jpg" alt="">
-                    
+
                     <div class="card-body">
                         <a href="{{ url('/bancos/create') }}" class="btn btn-success btn-sm" title="Agregar nuevo banco">
                             <i class="fa fa-plus" aria-hidden="true"></i> Agregar Nuevo banco
@@ -32,10 +32,13 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Codigo Banco</th><th>Nombre Banco</th><th>Acciones</th>
+                                        <th>#</th>
+                                        <th>Codigo Banco</th>
+                                        <th>Nombre Banco</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,7 +46,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->codigo_banco }}</td><td>{{ $item->nombre_banco }}</td>
-                                        <td>
+                                        <td width="215px">
                                             <a href="{{ url('/bancos/' . $item->id) }}" title="Ver banco"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
                                             <a href="{{ url('/bancos/' . $item->id . '/edit') }}" title="Editar banco"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
 

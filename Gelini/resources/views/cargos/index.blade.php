@@ -7,12 +7,11 @@
 
 @section('content')
     <div class="container">
-       
             <div class="col-md-15">
                 <div class="card">
                     <div class="card-header">Cargos</div>
                     <img class="mx-auto d-block " src="img/descarga.jpg" alt="">
-                    
+
                     <div class="card-body">
                         <a href="{{ url('/cargos/create') }}" class="btn btn-success btn-sm" title="Add New cargo">
                             <i class="fa fa-plus" aria-hidden="true"></i> Agregar cargos
@@ -32,10 +31,12 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Descripcion del Departamento</th><th>Acciones</th>
+                                        <th>#</th>
+                                        <th>Descripcion del Departamento</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,7 +44,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->descripcion }}</td>
-                                        <td>
+                                        <td width="215px">
                                             <a href="{{ url('/cargos/' . $item->id) }}" title="View cargo"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
                                             <a href="{{ url('/cargos/' . $item->id . '/edit') }}" title="Edit cargo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
 

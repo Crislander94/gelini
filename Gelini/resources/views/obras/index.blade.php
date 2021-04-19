@@ -7,7 +7,6 @@
 
 @section('content')
     <div class="container">
-       
             <div class="col-md-15">
                 <div class="card">
                     <div class="card-header ">Obras</div>
@@ -31,18 +30,28 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table table-over table-bordered table-condensed">
+                            <table class="table table-striped table-hover table-bordered table-condensed">
                                 <thead>
                                     <tr>
-                                     <th>#</th><th>Nombre</th><th>Descripcion</th><th>Estado</th><th>Fecha_Inicio</th><th>Fecha_Fin</th><th>     </th>
-                                     </tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Estado</th>
+                                        <th>Fecha_Inicio</th>
+                                        <th>Fecha_Fin</th>
+                                        <th>Acciones</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($obras as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                       <td>{{ $item->Nombre }}</td><td>{{ $item->Descripcion }}</td><td>{{ $item->Estado }}</td><td>{{ $item->Fecha_inicio }}</td><td>{{ $item->Fecha_fin }}</td>
-                                        <td>
+                                        <td>{{ $item->Nombre }}</td>
+                                        <td>{{ $item->Descripcion }}</td>
+                                        <td>{{ $item->Estado }}</td>
+                                        <td>{{ $item->Fecha_inicio }}</td>
+                                        <td>{{ $item->Fecha_fin }}</td>
+                                        <td width="215px">
                                             <a href="{{ url('/obras/' . $item->id) }}" title="Ver Obra"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
                                             <a href="{{ url('/obras/' . $item->id . '/edit') }}" title="Editar Obra"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
 
@@ -56,7 +65,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            
+
                             <div class="pagination-wrapper"> {!! $obras->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 

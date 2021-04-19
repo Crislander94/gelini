@@ -7,8 +7,8 @@
 
 @section('content')
     <div class="container">
-       
-            <div class="col-md-15">
+
+        <div class="col-md-15">
                 <div class="card">
                     <div class="card-header">Departamentos</div>
                     <img class="mx-auto d-block " src="img/descarga.jpg" alt="">
@@ -31,10 +31,12 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Descripcion</th><th>Acciones</th>
+                                        <th>#</th>
+                                        <th>Descripcion</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -42,7 +44,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->descripcion }}</td>
-                                        <td>
+                                        <td width="215px">
                                             <a href="{{ url('/departamentos/' . $item->id) }}" title="View cargo"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
                                             <a href="{{ url('/departamentos/' . $item->id . '/edit') }}" title="Edit cargo"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
 
@@ -52,7 +54,7 @@
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete cargo" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</button>
                                             </form>
                                         </td>
-                                        </tr>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>
